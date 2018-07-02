@@ -362,7 +362,10 @@ public:
     {
         if (!pdb || !activeTxn)
             return false;
-        int ret = activeTxn->commit(0);
+        int ret = 0;
+#ifdef USE_DB4
+        activeTxn->commit(0);
+#endif
         activeTxn = nullptr;
         return (ret == 0);
     }
@@ -371,7 +374,10 @@ public:
     {
         if (!pdb || !activeTxn)
             return false;
-        int ret = activeTxn->abort();
+        int ret = 0;
+#ifdef USE_DB4
+        activeTxn->abort();
+#endif
         activeTxn = nullptr;
         return (ret == 0);
     }

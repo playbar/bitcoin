@@ -26,25 +26,265 @@ set_target_properties(db_cxx_lib_a PROPERTIES IMPORTED_LOCATION
 
 # db
 set(DB_LIB_SRC
+        db_src/btree/bt_compact.c
+        db_src/btree/bt_compare.c
+        db_src/btree/bt_compress.c
+        db_src/btree/bt_conv.c
+        db_src/btree/bt_curadj.c
+        db_src/btree/bt_cursor.c
+        db_src/btree/bt_delete.c
+        db_src/btree/bt_method.c
+        db_src/btree/bt_open.c
+        db_src/btree/bt_put.c
+        db_src/btree/bt_rec.c
+        db_src/btree/bt_reclaim.c
+        db_src/btree/bt_recno.c
+        db_src/btree/bt_rsearch.c
+        db_src/btree/bt_search.c
+        db_src/btree/bt_split.c
+        db_src/btree/bt_stat.c
+        db_src/btree/bt_upgrade.c
+        db_src/btree/bt_verify.c
+        db_src/btree/btree_auto.c
+        db_src/btree/btree_autop.c
+        db_src/common/crypto_stub.c
+        db_src/common/db_byteorder.c
+        db_src/common/db_compint.c
+        db_src/common/db_err.c
+        db_src/common/db_getlong.c
+        db_src/common/db_idspace.c
+        db_src/common/db_log2.c
+        db_src/common/db_shash.c
+        db_src/common/dbt.c
+        db_src/common/mkpath.c
+        db_src/common/openflags.c
+        db_src/common/os_method.c
+        db_src/common/util_arg.c
+        db_src/common/util_cache.c
+        db_src/common/util_log.c
+        db_src/common/util_sig.c
+        db_src/common/zerofill.c
+        db_src/env/env_alloc.c
+        db_src/env/env_config.c
+        db_src/env/env_failchk.c
+        db_src/env/env_file.c
+        db_src/env/env_globals.c
+        db_src/env/env_method.c
+        db_src/env/env_name.c
+        db_src/env/env_open.c
+        db_src/env/env_recover.c
+        db_src/env/env_region.c
+        db_src/env/env_register.c
+        db_src/env/env_sig.c
+        db_src/env/env_stat.c
+        db_src/db/crdel_auto.c
+        db_src/db/crdel_autop.c
+        db_src/db/crdel_rec.c
         db_src/db/db.c
+        db_src/db/db_am.c
+        db_src/db/db_auto.c
+        db_src/db/db_autop.c
+        db_src/db/db_cam.c
+        db_src/db/db_cds.c
+        db_src/db/db_conv.c
+        db_src/db/db_dispatch.c
+        db_src/db/db_dup.c
+        db_src/db/db_iface.c
+        db_src/db/db_join.c
+        db_src/db/db_meta.c
+        db_src/db/db_method.c
+        db_src/db/db_open.c
+        db_src/db/db_overflow.c
+        db_src/db/db_ovfl_vrfy.c
+        db_src/db/db_pr.c
+        db_src/db/db_rec.c
+        db_src/db/db_reclaim.c
+        db_src/db/db_remove.c
+        db_src/db/db_rename.c
+        db_src/db/db_ret.c
+        db_src/db/db_setid.c
+        db_src/db/db_setlsn.c
+        db_src/db/db_sort_multiple.c
+        db_src/db/db_stati.c
+        db_src/db/db_truncate.c
+        db_src/db/db_upg.c
+        db_src/db/db_upg_opd.c
+        db_src/db/db_vrfy.c
+        db_src/db/db_vrfy_stub.c
+        db_src/db/db_vrfyutil.c
+        db_src/db/partition.c
+        db_src/dbreg/dbreg.c
+        db_src/dbreg/dbreg_auto.c
+        db_src/dbreg/dbreg_autop.c
+        db_src/dbreg/dbreg_rec.c
+        db_src/dbreg/dbreg_stat.c
+        db_src/dbreg/dbreg_util.c
+        db_src/fileops/fileops_auto.c
+        db_src/fileops/fileops_autop.c
+        db_src/fileops/fop_basic.c
+        db_src/fileops/fop_rec.c
+        db_src/fileops/fop_util.c
+        db_src/hash/hash.c
+        db_src/hash/hash_auto.c
+        db_src/hash/hash_conv.c
+        db_src/hash/hash_dup.c
+        db_src/hash/hash_func.c
+        db_src/hash/hash_meta.c
+        db_src/hash/hash_method.c
+        db_src/hash/hash_open.c
+        db_src/hash/hash_page.c
+        db_src/hash/hash_rec.c
+        db_src/hash/hash_reclaim.c
+        db_src/hash/hash_stat.c
+        db_src/hash/hash_upgrade.c
+        db_src/hash/hash_verify.c
+        db_src/hmac/hmac.c
+        db_src/hmac/sha1.c
+        db_src/lock/lock.c
+        db_src/lock/lock_deadlock.c
+        db_src/lock/lock_failchk.c
+        db_src/lock/lock_id.c
+        db_src/lock/lock_list.c
+        db_src/lock/lock_method.c
+        db_src/lock/lock_region.c
+        db_src/lock/lock_stat.c
+        db_src/lock/lock_stub.c
+        db_src/lock/lock_timer.c
+        db_src/lock/lock_util.c
+        db_src/log/log.c
+        db_src/log/log_archive.c
+        db_src/log/log_compare.c
+        db_src/log/log_debug.c
+        db_src/log/log_get.c
+        db_src/log/log_method.c
+        db_src/log/log_put.c
+        db_src/log/log_stat.c
+        db_src/mp/mp_alloc.c
+        db_src/mp/mp_bh.c
+        db_src/mp/mp_fget.c
+        db_src/mp/mp_fmethod.c
+        db_src/mp/mp_fopen.c
+        db_src/mp/mp_fput.c
+        db_src/mp/mp_fset.c
+        db_src/mp/mp_method.c
+        db_src/mp/mp_mvcc.c
+        db_src/mp/mp_region.c
+        db_src/mp/mp_register.c
+        db_src/mp/mp_resize.c
+        db_src/mp/mp_stat.c
+        db_src/mp/mp_sync.c
+        db_src/mp/mp_trickle.c
+        db_src/mutex/mut_alloc.c
+        db_src/mutex/mut_failchk.c
+        db_src/mutex/mut_fcntl.c
+        db_src/mutex/mut_method.c
+        db_src/mutex/mut_pthread.c
+        db_src/mutex/mut_region.c
+        db_src/mutex/mut_stat.c
+        db_src/mutex/mut_stub.c
+        db_src/mutex/mut_tas.c
+        db_src/os/os_abort.c
+        db_src/os/os_abs.c
+        db_src/os/os_addrinfo.c
+        db_src/os/os_alloc.c
+        db_src/os/os_clock.c
+        db_src/os/os_config.c
+        db_src/os/os_cpu.c
+        db_src/os/os_ctime.c
+        db_src/os/os_dir.c
+        db_src/os/os_errno.c
+        db_src/os/os_fid.c
+        db_src/os/os_flock.c
+        db_src/os/os_fsync.c
+        db_src/os/os_handle.c
+        db_src/os/os_getenv.c
+        db_src/os/os_map.c
+        db_src/os/os_mkdir.c
+        db_src/os/os_open.c
+        db_src/os/os_pid.c
+        db_src/os/os_rename.c
+        db_src/os/os_root.c
+        db_src/os/os_rpath.c
+        db_src/os/os_rw.c
+        db_src/os/os_seek.c
+        db_src/os/os_stack.c
+        db_src/os/os_stat.c
+        db_src/os/os_tmpdir.c
+        db_src/os/os_truncate.c
+        db_src/os/os_uid.c
+        db_src/os/os_unlink.c
+        db_src/os/os_yield.c
+        db_src/qam/qam.c
+        db_src/qam/qam_auto.c
+        db_src/qam/qam_autop.c
+        db_src/qam/qam_conv.c
+        db_src/qam/qam_files.c
+        db_src/qam/qam_method.c
+        db_src/qam/qam_open.c
+        db_src/qam/qam_rec.c
+        db_src/qam/qam_stat.c
+        db_src/qam/qam_upgrade.c
+        db_src/qam/qam_verify.c
+        db_src/rep/rep_auto.c
+        db_src/rep/rep_backup.c
+        db_src/rep/rep_elect.c
+        db_src/rep/rep_lease.c
+        db_src/rep/rep_log.c
+        db_src/rep/rep_method.c
+        db_src/rep/rep_record.c
+        db_src/rep/rep_region.c
+        db_src/rep/rep_stat.c
+        db_src/rep/rep_util.c
+        db_src/rep/rep_verify.c
+        db_src/repmgr/repmgr_auto.c
+        db_src/repmgr/repmgr_elect.c
+        db_src/repmgr/repmgr_method.c
+        db_src/repmgr/repmgr_msg.c
+        db_src/repmgr/repmgr_net.c
+        db_src/repmgr/repmgr_posix.c
+        db_src/repmgr/repmgr_queue.c
+        db_src/repmgr/repmgr_sel.c
+        db_src/repmgr/repmgr_stat.c
+        db_src/repmgr/repmgr_util.c
+        db_src/txn/txn.c
+        db_src/txn/txn_auto.c
+        db_src/txn/txn_autop.c
+        db_src/txn/txn_chkpt.c
+        db_src/txn/txn_failchk.c
+        db_src/txn/txn_method.c
+        db_src/txn/txn_rec.c
+        db_src/txn/txn_recover.c
+        db_src/txn/txn_region.c
+        db_src/txn/txn_stat.c
+        db_src/txn/txn_util.c
         )
 
 add_library(db_lib ${DB_LIB_SRC})
 target_include_directories(db_lib PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/db_src
-        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/build_unix
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
         )
 
 # db_cxx
 set(DB_CXX_LIB_SRC
-        #db_src/db/db.c
+        db_src/cxx/cxx_db.cpp
+        db_src/cxx/cxx_dbc.cpp
+        db_src/cxx/cxx_dbt.cpp
+        db_src/cxx/cxx_env.cpp
+        db_src/cxx/cxx_except.cpp
+        db_src/cxx/cxx_lock.cpp
+        db_src/cxx/cxx_logc.cpp
+        db_src/cxx/cxx_mpool.cpp
+        db_src/cxx/cxx_multi.cpp
+        db_src/cxx/cxx_seq.cpp
+        db_src/cxx/cxx_txn.cpp
         db_src/cxx/cxx_dbc.cpp
         )
 
 add_library(db_cxx_lib ${DB_CXX_LIB_SRC})
 target_include_directories(db_cxx_lib PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/db_src
-        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/build_unix
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
         )
 
 # bitcoin
@@ -168,8 +408,7 @@ target_include_directories(bitcoin PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
         ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
         ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
-        #${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/db4/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/build_unix
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
         )
 
 ### univalue
@@ -198,8 +437,8 @@ target_link_libraries(bitcoind
         univalue
         crypto_lib
         ssl_lib
-#        db_lib
-#        db_cxx_lib
+        db_lib
+        db_cxx_lib
         leveldb
         event
         event_pthreads

@@ -31,13 +31,16 @@ namespace {
 //! this error can be triggered if users manually copy database files.
 void CheckUniqueFileid(const BerkeleyEnvironment& env, const std::string& filename, Db& db)
 {
-    if (env.IsMock()) return;
+    if (env.IsMock())
+        return;
 
     u_int8_t fileid[DB_FILE_ID_LEN];
+#ifdef USE_DB4
     int ret = db.get_mpf()->get_fileid(fileid);
     if (ret != 0) {
         throw std::runtime_error(strprintf("BerkeleyBatch: Can't open database %s (get_fileid failed with %d)", filename, ret));
     }
+
 
     for (const auto& item : env.mapDb) {
         u_int8_t item_fileid[DB_FILE_ID_LEN];
@@ -50,6 +53,7 @@ void CheckUniqueFileid(const BerkeleyEnvironment& env, const std::string& filena
                 item_filename ? item_filename : "(unknown database)"));
         }
     }
+#endif
 }
 
 CCriticalSection cs_db;
@@ -310,7 +314,9 @@ bool BerkeleyBatch::Recover(const fs::path& file_path, void *callbackDataIn, boo
         if (ret2 > 0)
             fSuccess = false;
     }
+#ifdef USE_DB4
     ptxn->commit(0);
+#endif
     pdbCopy->close(0);
 
     return fSuccess;
@@ -544,8 +550,10 @@ void BerkeleyBatch::Close()
 {
     if (!pdb)
         return;
+#ifdef USE_DB4
     if (activeTxn)
         activeTxn->abort();
+#endif
     activeTxn = nullptr;
     pdb = nullptr;
 
