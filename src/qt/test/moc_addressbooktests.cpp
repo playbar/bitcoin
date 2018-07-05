@@ -11,31 +11,28 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'addressbooktests.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.11.0. It"
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-QT_WARNING_PUSH
-QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_AddressBookTests_t {
     QByteArrayData data[3];
-    char stringdata0[35];
+    char stringdata[36];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_AddressBookTests_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
+    offsetof(qt_meta_stringdata_AddressBookTests_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
     )
 static const qt_meta_stringdata_AddressBookTests_t qt_meta_stringdata_AddressBookTests = {
     {
-QT_MOC_LITERAL(0, 0, 16), // "AddressBookTests"
-QT_MOC_LITERAL(1, 17, 16), // "addressBookTests"
-QT_MOC_LITERAL(2, 34, 0) // ""
-
+QT_MOC_LITERAL(0, 0, 16),
+QT_MOC_LITERAL(1, 17, 16),
+QT_MOC_LITERAL(2, 34, 0)
     },
-    "AddressBookTests\0addressBookTests\0"
+    "AddressBookTests\0addressBookTests\0\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +50,7 @@ static const uint qt_meta_data_AddressBookTests[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    0,   19,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void,
@@ -65,7 +62,6 @@ void AddressBookTests::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         AddressBookTests *_t = static_cast<AddressBookTests *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->addressBookTests(); break;
         default: ;
@@ -74,9 +70,9 @@ void AddressBookTests::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject AddressBookTests::staticMetaObject = {
+const QMetaObject AddressBookTests::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_AddressBookTests.data,
-      qt_meta_data_AddressBookTests,  qt_static_metacall, nullptr, nullptr}
+      qt_meta_data_AddressBookTests,  qt_static_metacall, 0, 0}
 };
 
 
@@ -87,9 +83,9 @@ const QMetaObject *AddressBookTests::metaObject() const
 
 void *AddressBookTests::qt_metacast(const char *_clname)
 {
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_AddressBookTests.stringdata0))
-        return static_cast<void*>(this);
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_AddressBookTests.stringdata))
+        return static_cast<void*>(const_cast< AddressBookTests*>(this));
     return QObject::qt_metacast(_clname);
 }
 
@@ -109,5 +105,4 @@ int AddressBookTests::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     }
     return _id;
 }
-QT_WARNING_POP
 QT_END_MOC_NAMESPACE

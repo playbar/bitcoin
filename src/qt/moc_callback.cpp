@@ -11,31 +11,28 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'callback.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.11.0. It"
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-QT_WARNING_PUSH
-QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Callback_t {
     QByteArrayData data[3];
-    char stringdata0[15];
+    char stringdata[16];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_Callback_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
+    offsetof(qt_meta_stringdata_Callback_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
     )
 static const qt_meta_stringdata_Callback_t qt_meta_stringdata_Callback = {
     {
-QT_MOC_LITERAL(0, 0, 8), // "Callback"
-QT_MOC_LITERAL(1, 9, 4), // "call"
-QT_MOC_LITERAL(2, 14, 0) // ""
-
+QT_MOC_LITERAL(0, 0, 8),
+QT_MOC_LITERAL(1, 9, 4),
+QT_MOC_LITERAL(2, 14, 0)
     },
-    "Callback\0call\0"
+    "Callback\0call\0\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +50,7 @@ static const uint qt_meta_data_Callback[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x0a /* Public */,
+       1,    0,   19,    2, 0x0a,
 
  // slots: parameters
     QMetaType::Void,
@@ -65,7 +62,6 @@ void Callback::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Callback *_t = static_cast<Callback *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->call(); break;
         default: ;
@@ -74,9 +70,9 @@ void Callback::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject Callback::staticMetaObject = {
+const QMetaObject Callback::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_Callback.data,
-      qt_meta_data_Callback,  qt_static_metacall, nullptr, nullptr}
+      qt_meta_data_Callback,  qt_static_metacall, 0, 0}
 };
 
 
@@ -87,9 +83,9 @@ const QMetaObject *Callback::metaObject() const
 
 void *Callback::qt_metacast(const char *_clname)
 {
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_Callback.stringdata0))
-        return static_cast<void*>(this);
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_Callback.stringdata))
+        return static_cast<void*>(const_cast< Callback*>(this));
     return QObject::qt_metacast(_clname);
 }
 
@@ -109,5 +105,4 @@ int Callback::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     }
     return _id;
 }
-QT_WARNING_POP
 QT_END_MOC_NAMESPACE

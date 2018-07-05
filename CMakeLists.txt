@@ -474,5 +474,167 @@ target_link_libraries(bitcoin-cli
 
 ################
 
+set(BITCOIN_TX_SRC
+        src/bitcoin-tx.cpp)
+
+add_executable(bitcoin-tx ${BITCOIN_TX_SRC})
+target_include_directories(bitcoin-tx PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
+        )
+target_link_libraries(bitcoin-tx
+        bitcoin
+        univalue
+        crypto_lib
+        ssl_lib
+        event
+        boost_system
+        boost_filesystem
+        boost_program_options
+        boost_thread
+        )
+
+################
+
+set(BITCOIN_QT_SRC
+        src/qt/addressbookpage.cpp
+        src/qt/addresstablemodel.cpp
+        src/qt/askpassphrasedialog.cpp
+        src/qt/bantablemodel.cpp
+        src/qt/bitcoin.cpp
+        src/qt/bitcoinaddressvalidator.cpp
+        src/qt/bitcoinamountfield.cpp
+        src/qt/bitcoingui.cpp
+        src/qt/bitcoinstrings.cpp
+        src/qt/bitcoinunits.cpp
+        src/qt/clientmodel.cpp
+        src/qt/coincontroldialog.cpp
+        src/qt/coincontroltreewidget.cpp
+        src/qt/csvmodelwriter.cpp
+        src/qt/editaddressdialog.cpp
+        src/qt/guiutil.cpp
+        src/qt/intro.cpp
+        src/qt/moc_addressbookpage.cpp
+        src/qt/moc_addresstablemodel.cpp
+        src/qt/moc_askpassphrasedialog.cpp
+        src/qt/moc_bantablemodel.cpp
+        src/qt/moc_bitcoinaddressvalidator.cpp
+        src/qt/moc_bitcoinamountfield.cpp
+        src/qt/moc_bitcoingui.cpp
+        src/qt/moc_bitcoinunits.cpp
+        src/qt/moc_callback.cpp
+        src/qt/moc_clientmodel.cpp
+        src/qt/moc_coincontroldialog.cpp
+        src/qt/moc_coincontroltreewidget.cpp
+        src/qt/moc_csvmodelwriter.cpp
+        src/qt/moc_editaddressdialog.cpp
+        src/qt/moc_guiutil.cpp
+        src/qt/moc_intro.cpp
+        src/qt/moc_macdockiconhandler.cpp
+        src/qt/moc_macnotificationhandler.cpp
+        src/qt/moc_modaloverlay.cpp
+        src/qt/moc_notificator.cpp
+        src/qt/moc_openuridialog.cpp
+        src/qt/moc_optionsdialog.cpp
+        src/qt/moc_optionsmodel.cpp
+        src/qt/moc_overviewpage.cpp
+        src/qt/moc_paymentserver.cpp
+        src/qt/moc_peertablemodel.cpp
+        src/qt/moc_qvalidatedlineedit.cpp
+        src/qt/moc_qvaluecombobox.cpp
+        src/qt/moc_receivecoinsdialog.cpp
+        src/qt/moc_receiverequestdialog.cpp
+        src/qt/moc_recentrequeststablemodel.cpp
+        src/qt/moc_rpcconsole.cpp
+        src/qt/moc_sendcoinsdialog.cpp
+        src/qt/moc_sendcoinsentry.cpp
+        src/qt/moc_signverifymessagedialog.cpp
+        src/qt/moc_splashscreen.cpp
+        src/qt/moc_trafficgraphwidget.cpp
+        src/qt/moc_transactiondesc.cpp
+        src/qt/moc_transactiondescdialog.cpp
+        src/qt/moc_transactionfilterproxy.cpp
+        src/qt/moc_transactiontablemodel.cpp
+        src/qt/moc_transactionview.cpp
+        src/qt/moc_utilitydialog.cpp
+        src/qt/moc_walletframe.cpp
+        src/qt/moc_walletmodel.cpp
+        src/qt/moc_walletview.cpp
+        src/qt/modaloverlay.cpp
+        src/qt/networkstyle.cpp
+        src/qt/notificator.cpp
+        src/qt/openuridialog.cpp
+        src/qt/optionsdialog.cpp
+        src/qt/optionsmodel.cpp
+        src/qt/overviewpage.cpp
+        src/qt/paymentrequest.pb.cc
+        src/qt/paymentrequestplus.cpp
+        src/qt/paymentserver.cpp
+        src/qt/peertablemodel.cpp
+        src/qt/platformstyle.cpp
+        src/qt/qrc_bitcoin.cpp
+        src/qt/qrc_bitcoin_locale.cpp
+        src/qt/qvalidatedlineedit.cpp
+        src/qt/qvaluecombobox.cpp
+        src/qt/receivecoinsdialog.cpp
+        src/qt/receiverequestdialog.cpp
+        src/qt/recentrequeststablemodel.cpp
+        src/qt/rpcconsole.cpp
+        src/qt/sendcoinsdialog.cpp
+        src/qt/sendcoinsentry.cpp
+        src/qt/signverifymessagedialog.cpp
+        src/qt/splashscreen.cpp
+        src/qt/trafficgraphwidget.cpp
+        src/qt/transactiondesc.cpp
+        src/qt/transactiondescdialog.cpp
+        src/qt/transactionfilterproxy.cpp
+        src/qt/transactionrecord.cpp
+        src/qt/transactiontablemodel.cpp
+        src/qt/transactionview.cpp
+        src/qt/utilitydialog.cpp
+        src/qt/walletframe.cpp
+        src/qt/walletmodel.cpp
+        src/qt/walletmodeltransaction.cpp
+        src/qt/walletview.cpp
+        src/qt/winshutdownmonitor.cpp
+        )
+
+add_executable(bitcoin-qt ${BITCOIN_QT_SRC})
+target_include_directories(bitcoin-qt PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtGui
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtCore
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtNetwork
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtWidgets
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
+        )
 
 
+add_library(QtCore_lib STATIC IMPORTED)
+set_target_properties(QtCore_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtCore)
+
+
+add_library(QtWidgets_lib STATIC IMPORTED)
+set_target_properties(QtWidgets_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtWidgets)
+
+target_link_libraries(bitcoin-qt
+        bitcoin
+        univalue
+        crypto_lib
+        ssl_lib
+        db_lib
+        db_cxx_lib
+        QtCore_lib
+        QtWidgets_lib
+        event
+        boost_system
+        boost_filesystem
+        boost_program_options
+        boost_thread
+        )
+
+################

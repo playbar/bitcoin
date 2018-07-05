@@ -11,31 +11,28 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'macdockiconhandler.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.11.0. It"
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-QT_WARNING_PUSH
-QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MacDockIconHandler_t {
     QByteArrayData data[3];
-    char stringdata0[36];
+    char stringdata[37];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MacDockIconHandler_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
+    offsetof(qt_meta_stringdata_MacDockIconHandler_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
     )
 static const qt_meta_stringdata_MacDockIconHandler_t qt_meta_stringdata_MacDockIconHandler = {
     {
-QT_MOC_LITERAL(0, 0, 18), // "MacDockIconHandler"
-QT_MOC_LITERAL(1, 19, 15), // "dockIconClicked"
-QT_MOC_LITERAL(2, 35, 0) // ""
-
+QT_MOC_LITERAL(0, 0, 18),
+QT_MOC_LITERAL(1, 19, 15),
+QT_MOC_LITERAL(2, 35, 0)
     },
-    "MacDockIconHandler\0dockIconClicked\0"
+    "MacDockIconHandler\0dockIconClicked\0\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +50,7 @@ static const uint qt_meta_data_MacDockIconHandler[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x06 /* Public */,
+       1,    0,   19,    2, 0x06,
 
  // signals: parameters
     QMetaType::Void,
@@ -65,27 +62,26 @@ void MacDockIconHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         MacDockIconHandler *_t = static_cast<MacDockIconHandler *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->dockIconClicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
+        void **func = reinterpret_cast<void **>(_a[1]);
         {
-            using _t = void (MacDockIconHandler::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MacDockIconHandler::dockIconClicked)) {
+            typedef void (MacDockIconHandler::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MacDockIconHandler::dockIconClicked)) {
                 *result = 0;
-                return;
             }
         }
     }
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject MacDockIconHandler::staticMetaObject = {
+const QMetaObject MacDockIconHandler::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_MacDockIconHandler.data,
-      qt_meta_data_MacDockIconHandler,  qt_static_metacall, nullptr, nullptr}
+      qt_meta_data_MacDockIconHandler,  qt_static_metacall, 0, 0}
 };
 
 
@@ -96,9 +92,9 @@ const QMetaObject *MacDockIconHandler::metaObject() const
 
 void *MacDockIconHandler::qt_metacast(const char *_clname)
 {
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_MacDockIconHandler.stringdata0))
-        return static_cast<void*>(this);
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_MacDockIconHandler.stringdata))
+        return static_cast<void*>(const_cast< MacDockIconHandler*>(this));
     return QObject::qt_metacast(_clname);
 }
 
@@ -122,7 +118,6 @@ int MacDockIconHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void MacDockIconHandler::dockIconClicked()
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
-QT_WARNING_POP
 QT_END_MOC_NAMESPACE

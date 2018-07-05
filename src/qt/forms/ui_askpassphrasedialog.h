@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'askpassphrasedialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.0
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,14 @@
 #define UI_ASKPASSPHRASEDIALOG_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -131,11 +134,11 @@ public:
 
     void retranslateUi(QDialog *AskPassphraseDialog)
     {
-        AskPassphraseDialog->setWindowTitle(QApplication::translate("AskPassphraseDialog", "Passphrase Dialog", nullptr));
-        passLabel1->setText(QApplication::translate("AskPassphraseDialog", "Enter passphrase", nullptr));
-        passLabel2->setText(QApplication::translate("AskPassphraseDialog", "New passphrase", nullptr));
-        passLabel3->setText(QApplication::translate("AskPassphraseDialog", "Repeat new passphrase", nullptr));
-        toggleShowPasswordButton->setText(QApplication::translate("AskPassphraseDialog", "Show password", nullptr));
+        AskPassphraseDialog->setWindowTitle(QApplication::translate("AskPassphraseDialog", "Passphrase Dialog", 0));
+        passLabel1->setText(QApplication::translate("AskPassphraseDialog", "Enter passphrase", 0));
+        passLabel2->setText(QApplication::translate("AskPassphraseDialog", "New passphrase", 0));
+        passLabel3->setText(QApplication::translate("AskPassphraseDialog", "Repeat new passphrase", 0));
+        toggleShowPasswordButton->setText(QApplication::translate("AskPassphraseDialog", "Show password", 0));
         capsLabel->setText(QString());
     } // retranslateUi
 

@@ -11,31 +11,28 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'wallettests.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.11.0. It"
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-QT_WARNING_PUSH
-QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_WalletTests_t {
     QByteArrayData data[3];
-    char stringdata0[25];
+    char stringdata[26];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_WalletTests_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
+    offsetof(qt_meta_stringdata_WalletTests_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
     )
 static const qt_meta_stringdata_WalletTests_t qt_meta_stringdata_WalletTests = {
     {
-QT_MOC_LITERAL(0, 0, 11), // "WalletTests"
-QT_MOC_LITERAL(1, 12, 11), // "walletTests"
-QT_MOC_LITERAL(2, 24, 0) // ""
-
+QT_MOC_LITERAL(0, 0, 11),
+QT_MOC_LITERAL(1, 12, 11),
+QT_MOC_LITERAL(2, 24, 0)
     },
-    "WalletTests\0walletTests\0"
+    "WalletTests\0walletTests\0\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +50,7 @@ static const uint qt_meta_data_WalletTests[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    0,   19,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void,
@@ -65,7 +62,6 @@ void WalletTests::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         WalletTests *_t = static_cast<WalletTests *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->walletTests(); break;
         default: ;
@@ -74,9 +70,9 @@ void WalletTests::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject WalletTests::staticMetaObject = {
+const QMetaObject WalletTests::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_WalletTests.data,
-      qt_meta_data_WalletTests,  qt_static_metacall, nullptr, nullptr}
+      qt_meta_data_WalletTests,  qt_static_metacall, 0, 0}
 };
 
 
@@ -87,9 +83,9 @@ const QMetaObject *WalletTests::metaObject() const
 
 void *WalletTests::qt_metacast(const char *_clname)
 {
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_WalletTests.stringdata0))
-        return static_cast<void*>(this);
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_WalletTests.stringdata))
+        return static_cast<void*>(const_cast< WalletTests*>(this));
     return QObject::qt_metacast(_clname);
 }
 
@@ -109,5 +105,4 @@ int WalletTests::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     }
     return _id;
 }
-QT_WARNING_POP
 QT_END_MOC_NAMESPACE

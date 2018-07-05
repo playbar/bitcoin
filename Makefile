@@ -311,10 +311,10 @@ CCACHE = /usr/local/bin/ccache
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CLIENT_VERSION_BUILD = 0
-CLIENT_VERSION_IS_RELEASE = true
+CLIENT_VERSION_IS_RELEASE = false
 CLIENT_VERSION_MAJOR = 0
 CLIENT_VERSION_MINOR = 16
-CLIENT_VERSION_REVISION = 1
+CLIENT_VERSION_REVISION = 99
 COPYRIGHT_HOLDERS = The %s developers
 COPYRIGHT_HOLDERS_FINAL = The Bitcoin Core developers
 COPYRIGHT_HOLDERS_SUBSTITUTION = Bitcoin Core
@@ -327,7 +327,7 @@ CRYPTO_LIBS = -L/usr/local/Cellar/openssl/1.0.2o_1/lib -lcrypto
 CXX = /usr/local/bin/ccache g++ -std=c++11
 CXXCPP = g++ -std=c++11 -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wvla -Wformat-security -Wno-unused-parameter -Wno-implicit-fallthrough
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -395,7 +395,7 @@ NMEDIT = nmedit
 OBJCOPY = 
 OBJCXX = g++ -std=c++11
 OBJCXXDEPMODE = depmode=gcc3
-OBJCXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wvla -Wformat-security -Wno-unused-parameter -Wno-implicit-fallthrough
+OBJCXXFLAGS = -g -O2
 OBJDUMP = objdump
 OBJEXT = o
 OTOOL = otool
@@ -403,10 +403,10 @@ OTOOL64 = :
 PACKAGE = bitcoin
 PACKAGE_BUGREPORT = https://github.com/bitcoin/bitcoin/issues
 PACKAGE_NAME = Bitcoin Core
-PACKAGE_STRING = Bitcoin Core 0.16.1
+PACKAGE_STRING = Bitcoin Core 0.16.99
 PACKAGE_TARNAME = bitcoin
 PACKAGE_URL = https://bitcoincore.org/
-PACKAGE_VERSION = 0.16.1
+PACKAGE_VERSION = 0.16.99
 PATH_SEPARATOR = :
 PIC_FLAGS = -fPIC
 PIE_FLAGS = -fPIE
@@ -465,7 +465,7 @@ UNIVALUE_CFLAGS = -I$(srcdir)/univalue/include
 UNIVALUE_LIBS = univalue/libunivalue.la
 USE_QRCODE = 
 USE_UPNP = 
-VERSION = 0.16.1
+VERSION = 0.16.99
 WINDOWS_BITS = 
 WINDRES = 
 X11XCB_CFLAGS = 

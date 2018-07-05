@@ -11,51 +11,48 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'coincontroldialog.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.11.0. It"
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-QT_WARNING_PUSH
-QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CoinControlDialog_t {
     QByteArrayData data[25];
-    char stringdata0[373];
+    char stringdata[374];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CoinControlDialog_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
+    offsetof(qt_meta_stringdata_CoinControlDialog_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
     )
 static const qt_meta_stringdata_CoinControlDialog_t qt_meta_stringdata_CoinControlDialog = {
     {
-QT_MOC_LITERAL(0, 0, 17), // "CoinControlDialog"
-QT_MOC_LITERAL(1, 18, 8), // "showMenu"
-QT_MOC_LITERAL(2, 27, 0), // ""
-QT_MOC_LITERAL(3, 28, 10), // "copyAmount"
-QT_MOC_LITERAL(4, 39, 9), // "copyLabel"
-QT_MOC_LITERAL(5, 49, 11), // "copyAddress"
-QT_MOC_LITERAL(6, 61, 19), // "copyTransactionHash"
-QT_MOC_LITERAL(7, 81, 8), // "lockCoin"
-QT_MOC_LITERAL(8, 90, 10), // "unlockCoin"
-QT_MOC_LITERAL(9, 101, 17), // "clipboardQuantity"
-QT_MOC_LITERAL(10, 119, 15), // "clipboardAmount"
-QT_MOC_LITERAL(11, 135, 12), // "clipboardFee"
-QT_MOC_LITERAL(12, 148, 17), // "clipboardAfterFee"
-QT_MOC_LITERAL(13, 166, 14), // "clipboardBytes"
-QT_MOC_LITERAL(14, 181, 18), // "clipboardLowOutput"
-QT_MOC_LITERAL(15, 200, 15), // "clipboardChange"
-QT_MOC_LITERAL(16, 216, 13), // "radioTreeMode"
-QT_MOC_LITERAL(17, 230, 13), // "radioListMode"
-QT_MOC_LITERAL(18, 244, 15), // "viewItemChanged"
-QT_MOC_LITERAL(19, 260, 16), // "QTreeWidgetItem*"
-QT_MOC_LITERAL(20, 277, 20), // "headerSectionClicked"
-QT_MOC_LITERAL(21, 298, 16), // "buttonBoxClicked"
-QT_MOC_LITERAL(22, 315, 16), // "QAbstractButton*"
-QT_MOC_LITERAL(23, 332, 22), // "buttonSelectAllClicked"
-QT_MOC_LITERAL(24, 355, 17) // "updateLabelLocked"
-
+QT_MOC_LITERAL(0, 0, 17),
+QT_MOC_LITERAL(1, 18, 8),
+QT_MOC_LITERAL(2, 27, 0),
+QT_MOC_LITERAL(3, 28, 10),
+QT_MOC_LITERAL(4, 39, 9),
+QT_MOC_LITERAL(5, 49, 11),
+QT_MOC_LITERAL(6, 61, 19),
+QT_MOC_LITERAL(7, 81, 8),
+QT_MOC_LITERAL(8, 90, 10),
+QT_MOC_LITERAL(9, 101, 17),
+QT_MOC_LITERAL(10, 119, 15),
+QT_MOC_LITERAL(11, 135, 12),
+QT_MOC_LITERAL(12, 148, 17),
+QT_MOC_LITERAL(13, 166, 14),
+QT_MOC_LITERAL(14, 181, 18),
+QT_MOC_LITERAL(15, 200, 15),
+QT_MOC_LITERAL(16, 216, 13),
+QT_MOC_LITERAL(17, 230, 13),
+QT_MOC_LITERAL(18, 244, 15),
+QT_MOC_LITERAL(19, 260, 16),
+QT_MOC_LITERAL(20, 277, 20),
+QT_MOC_LITERAL(21, 298, 16),
+QT_MOC_LITERAL(22, 315, 16),
+QT_MOC_LITERAL(23, 332, 22),
+QT_MOC_LITERAL(24, 355, 17)
     },
     "CoinControlDialog\0showMenu\0\0copyAmount\0"
     "copyLabel\0copyAddress\0copyTransactionHash\0"
@@ -66,7 +63,7 @@ QT_MOC_LITERAL(24, 355, 17) // "updateLabelLocked"
     "radioTreeMode\0radioListMode\0viewItemChanged\0"
     "QTreeWidgetItem*\0headerSectionClicked\0"
     "buttonBoxClicked\0QAbstractButton*\0"
-    "buttonSelectAllClicked\0updateLabelLocked"
+    "buttonSelectAllClicked\0updateLabelLocked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -84,27 +81,27 @@ static const uint qt_meta_data_CoinControlDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  119,    2, 0x08 /* Private */,
-       3,    0,  122,    2, 0x08 /* Private */,
-       4,    0,  123,    2, 0x08 /* Private */,
-       5,    0,  124,    2, 0x08 /* Private */,
-       6,    0,  125,    2, 0x08 /* Private */,
-       7,    0,  126,    2, 0x08 /* Private */,
-       8,    0,  127,    2, 0x08 /* Private */,
-       9,    0,  128,    2, 0x08 /* Private */,
-      10,    0,  129,    2, 0x08 /* Private */,
-      11,    0,  130,    2, 0x08 /* Private */,
-      12,    0,  131,    2, 0x08 /* Private */,
-      13,    0,  132,    2, 0x08 /* Private */,
-      14,    0,  133,    2, 0x08 /* Private */,
-      15,    0,  134,    2, 0x08 /* Private */,
-      16,    1,  135,    2, 0x08 /* Private */,
-      17,    1,  138,    2, 0x08 /* Private */,
-      18,    2,  141,    2, 0x08 /* Private */,
-      20,    1,  146,    2, 0x08 /* Private */,
-      21,    1,  149,    2, 0x08 /* Private */,
-      23,    0,  152,    2, 0x08 /* Private */,
-      24,    0,  153,    2, 0x08 /* Private */,
+       1,    1,  119,    2, 0x08,
+       3,    0,  122,    2, 0x08,
+       4,    0,  123,    2, 0x08,
+       5,    0,  124,    2, 0x08,
+       6,    0,  125,    2, 0x08,
+       7,    0,  126,    2, 0x08,
+       8,    0,  127,    2, 0x08,
+       9,    0,  128,    2, 0x08,
+      10,    0,  129,    2, 0x08,
+      11,    0,  130,    2, 0x08,
+      12,    0,  131,    2, 0x08,
+      13,    0,  132,    2, 0x08,
+      14,    0,  133,    2, 0x08,
+      15,    0,  134,    2, 0x08,
+      16,    1,  135,    2, 0x08,
+      17,    1,  138,    2, 0x08,
+      18,    2,  141,    2, 0x08,
+      20,    1,  146,    2, 0x08,
+      21,    1,  149,    2, 0x08,
+      23,    0,  152,    2, 0x08,
+      24,    0,  153,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QPoint,    2,
@@ -136,7 +133,6 @@ void CoinControlDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CoinControlDialog *_t = static_cast<CoinControlDialog *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->showMenu((*reinterpret_cast< const QPoint(*)>(_a[1]))); break;
         case 1: _t->copyAmount(); break;
@@ -175,9 +171,9 @@ void CoinControlDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject CoinControlDialog::staticMetaObject = {
+const QMetaObject CoinControlDialog::staticMetaObject = {
     { &QDialog::staticMetaObject, qt_meta_stringdata_CoinControlDialog.data,
-      qt_meta_data_CoinControlDialog,  qt_static_metacall, nullptr, nullptr}
+      qt_meta_data_CoinControlDialog,  qt_static_metacall, 0, 0}
 };
 
 
@@ -188,9 +184,9 @@ const QMetaObject *CoinControlDialog::metaObject() const
 
 void *CoinControlDialog::qt_metacast(const char *_clname)
 {
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CoinControlDialog.stringdata0))
-        return static_cast<void*>(this);
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_CoinControlDialog.stringdata))
+        return static_cast<void*>(const_cast< CoinControlDialog*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
@@ -210,5 +206,4 @@ int CoinControlDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     }
     return _id;
 }
-QT_WARNING_POP
 QT_END_MOC_NAMESPACE

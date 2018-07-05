@@ -11,29 +11,26 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'bitcoinaddressvalidator.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.11.0. It"
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-QT_WARNING_PUSH
-QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_BitcoinAddressEntryValidator_t {
     QByteArrayData data[1];
-    char stringdata0[29];
+    char stringdata[30];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_BitcoinAddressEntryValidator_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
+    offsetof(qt_meta_stringdata_BitcoinAddressEntryValidator_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
     )
 static const qt_meta_stringdata_BitcoinAddressEntryValidator_t qt_meta_stringdata_BitcoinAddressEntryValidator = {
     {
-QT_MOC_LITERAL(0, 0, 28) // "BitcoinAddressEntryValidator"
-
+QT_MOC_LITERAL(0, 0, 28)
     },
-    "BitcoinAddressEntryValidator"
+    "BitcoinAddressEntryValidator\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,9 +58,9 @@ void BitcoinAddressEntryValidator::qt_static_metacall(QObject *_o, QMetaObject::
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject BitcoinAddressEntryValidator::staticMetaObject = {
+const QMetaObject BitcoinAddressEntryValidator::staticMetaObject = {
     { &QValidator::staticMetaObject, qt_meta_stringdata_BitcoinAddressEntryValidator.data,
-      qt_meta_data_BitcoinAddressEntryValidator,  qt_static_metacall, nullptr, nullptr}
+      qt_meta_data_BitcoinAddressEntryValidator,  qt_static_metacall, 0, 0}
 };
 
 
@@ -74,32 +71,33 @@ const QMetaObject *BitcoinAddressEntryValidator::metaObject() const
 
 void *BitcoinAddressEntryValidator::qt_metacast(const char *_clname)
 {
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_BitcoinAddressEntryValidator.stringdata0))
-        return static_cast<void*>(this);
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_BitcoinAddressEntryValidator.stringdata))
+        return static_cast<void*>(const_cast< BitcoinAddressEntryValidator*>(this));
     return QValidator::qt_metacast(_clname);
 }
 
 int BitcoinAddressEntryValidator::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QValidator::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
     return _id;
 }
 struct qt_meta_stringdata_BitcoinAddressCheckValidator_t {
     QByteArrayData data[1];
-    char stringdata0[29];
+    char stringdata[30];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_BitcoinAddressCheckValidator_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
+    offsetof(qt_meta_stringdata_BitcoinAddressCheckValidator_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
     )
 static const qt_meta_stringdata_BitcoinAddressCheckValidator_t qt_meta_stringdata_BitcoinAddressCheckValidator = {
     {
-QT_MOC_LITERAL(0, 0, 28) // "BitcoinAddressCheckValidator"
-
+QT_MOC_LITERAL(0, 0, 28)
     },
-    "BitcoinAddressCheckValidator"
+    "BitcoinAddressCheckValidator\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -127,9 +125,9 @@ void BitcoinAddressCheckValidator::qt_static_metacall(QObject *_o, QMetaObject::
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject BitcoinAddressCheckValidator::staticMetaObject = {
+const QMetaObject BitcoinAddressCheckValidator::staticMetaObject = {
     { &QValidator::staticMetaObject, qt_meta_stringdata_BitcoinAddressCheckValidator.data,
-      qt_meta_data_BitcoinAddressCheckValidator,  qt_static_metacall, nullptr, nullptr}
+      qt_meta_data_BitcoinAddressCheckValidator,  qt_static_metacall, 0, 0}
 };
 
 
@@ -140,16 +138,17 @@ const QMetaObject *BitcoinAddressCheckValidator::metaObject() const
 
 void *BitcoinAddressCheckValidator::qt_metacast(const char *_clname)
 {
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_BitcoinAddressCheckValidator.stringdata0))
-        return static_cast<void*>(this);
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_BitcoinAddressCheckValidator.stringdata))
+        return static_cast<void*>(const_cast< BitcoinAddressCheckValidator*>(this));
     return QValidator::qt_metacast(_clname);
 }
 
 int BitcoinAddressCheckValidator::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QValidator::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
     return _id;
 }
-QT_WARNING_POP
 QT_END_MOC_NAMESPACE

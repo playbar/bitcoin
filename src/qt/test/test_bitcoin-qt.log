@@ -1,0 +1,107 @@
+********* Start testing of URITests *********
+Config: Using QtTest library 5.2.1, Qt 5.2.1
+PASS   : URITests::initTestCase()
+PASS   : URITests::uriTests()
+PASS   : URITests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped
+********* Finished testing of URITests *********
+********* Start testing of PaymentServerTests *********
+Config: Using QtTest library 5.2.1, Qt 5.2.1
+PASS   : PaymentServerTests::initTestCase()
+QDEBUG : PaymentServerTests::paymentServerTests() PaymentServer::initNetManager: No active proxy server found. 
+QDEBUG : PaymentServerTests::paymentServerTests() PaymentServer::processPaymentRequest: Secure payment request from  "testmerchant.org" 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: Payment request: certificate expired or not yet active:  QSslCertificate( "3" , "03" , "LxHILx+N3qwVoAcCmQ5cyw==" , () , ("Expired Test Merchant") , QMap() , QDateTime("2013-02-23 21:26:43.000 UTC Qt::UTC") , QDateTime("2013-02-24 21:26:43.000 UTC Qt::UTC") ) 
+QDEBUG : PaymentServerTests::paymentServerTests() PaymentServer::processPaymentRequest: Insecure payment request to  "1EcqLEpyu3zY7T5QU7RLrHEQH134KeGPXR" 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: Payment request: certificate expired or not yet active:  QSslCertificate( "3" , "03" , "LxHILx+N3qwVoAcCmQ5cyw==" , () , ("Expired Test Merchant") , QMap() , QDateTime("2013-02-23 21:26:43.000 UTC Qt::UTC") , QDateTime("2013-02-24 21:26:43.000 UTC Qt::UTC") ) 
+QDEBUG : PaymentServerTests::paymentServerTests() PaymentServer::processPaymentRequest: Secure payment request from  "testmerchant8.org" 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: Payment request: certificate expired or not yet active:  QSslCertificate( "3" , "06" , "MiZaQ+g9lSHZGuHWkXZG+g==" , () , ("Payment Request Intermediate 5") , QMap() , QDateTime("2013-02-23 22:59:51.000 UTC Qt::UTC") , QDateTime("2013-02-24 22:59:51.000 UTC Qt::UTC") ) 
+QDEBUG : PaymentServerTests::paymentServerTests() PaymentServer::processPaymentRequest: Insecure payment request to  "1EcqLEpyu3zY7T5QU7RLrHEQH134KeGPXR" 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: Payment request: certificate expired or not yet active:  QSslCertificate( "3" , "06" , "MiZaQ+g9lSHZGuHWkXZG+g==" , () , ("Payment Request Intermediate 5") , QMap() , QDateTime("2013-02-23 22:59:51.000 UTC Qt::UTC") , QDateTime("2013-02-24 22:59:51.000 UTC Qt::UTC") ) 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: SSL error:  certificate signature failure 
+QDEBUG : PaymentServerTests::paymentServerTests() PaymentServer::processPaymentRequest: Insecure payment request to  "1EcqLEpyu3zY7T5QU7RLrHEQH134KeGPXR" 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: SSL error:  certificate signature failure 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: SSL error:  unable to get local issuer certificate 
+QDEBUG : PaymentServerTests::paymentServerTests() PaymentServer::processPaymentRequest: Insecure payment request to  "1EcqLEpyu3zY7T5QU7RLrHEQH134KeGPXR" 
+QWARN  : PaymentServerTests::paymentServerTests() PaymentRequestPlus::getMerchant: SSL error:  unable to get local issuer certificate 
+QWARN  : PaymentServerTests::paymentServerTests() "PaymentServer::verifyNetwork: Payment request network "test" doesn't match client network "main"." 
+QWARN  : PaymentServerTests::paymentServerTests() "PaymentServer::verifyExpired: Payment request expired "1970-01-01T00:00:01Z"." 
+QWARN  : PaymentServerTests::paymentServerTests() "PaymentServer::verifyExpired: Payment request expired "-219246529-295282928-11018T08:29:52Z"." 
+QWARN  : PaymentServerTests::paymentServerTests() "PaymentServer::verifySize: Payment request too large (50001 bytes, allowed 50000 bytes)." 
+QWARN  : PaymentServerTests::paymentServerTests() "PaymentServer::verifyAmount: Payment request amount out of allowed range (2100000100000000, allowed 0 - 2100000000000000)." 
+PASS   : PaymentServerTests::paymentServerTests()
+PASS   : PaymentServerTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped
+********* Finished testing of PaymentServerTests *********
+********* Start testing of RPCNestedTests *********
+Config: Using QtTest library 5.2.1, Qt 5.2.1
+PASS   : RPCNestedTests::initTestCase()
+PASS   : RPCNestedTests::rpcNestedTests()
+PASS   : RPCNestedTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped
+********* Finished testing of RPCNestedTests *********
+********* Start testing of CompatTests *********
+Config: Using QtTest library 5.2.1, Qt 5.2.1
+PASS   : CompatTests::initTestCase()
+PASS   : CompatTests::bswapTests()
+PASS   : CompatTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped
+********* Finished testing of CompatTests *********
+********* Start testing of WalletTests *********
+Config: Using QtTest library 5.2.1, Qt 5.2.1
+PASS   : WalletTests::initTestCase()
+QDEBUG : WalletTests::walletTests() TransactionTablePriv::refreshWallet 
+QWARN  : WalletTests::walletTests() This plugin does not support propagateSizeHints()
+QDEBUG : WalletTests::walletTests() "NotifyTransactionChanged: c2e386fffaa42166e627024beeda8bbc16d1237a8e5ad8bd4259e9bfcdf2b0ac status= 0" 
+QDEBUG : WalletTests::walletTests() "NotifyTransactionChanged: 81582c2b3443c656934565b42252233802d407196a5cb1e9237050ddf0dc66a4 status= 1" 
+QDEBUG : WalletTests::walletTests() "NotifyAddressBookChanged: mfWxJ45yp2SFn7UciZyNpvDKrzbhyfKrY8  isMine=0 purpose=send status=0" 
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: c2e386fffaa42166e627024beeda8bbc16d1237a8e5ad8bd4259e9bfcdf2b0ac 0" 
+QDEBUG : WalletTests::walletTests() "    inModel=0 Index=63-63 showTransaction=1 derivedStatus=0" 
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: 81582c2b3443c656934565b42252233802d407196a5cb1e9237050ddf0dc66a4 1" 
+QDEBUG : WalletTests::walletTests() "    inModel=1 Index=56-57 showTransaction=1 derivedStatus=1" 
+QWARN  : WalletTests::walletTests() This plugin does not support propagateSizeHints()
+QDEBUG : WalletTests::walletTests() "NotifyTransactionChanged: eb3825d48ea118e4def4bad5abfac9649539dfcc3358ed123022cb42bd2aae09 status= 0" 
+QDEBUG : WalletTests::walletTests() "NotifyTransactionChanged: 55df5c8cea805da80826faba66f9936c2c6a44185bc8a2ba2703281a15b1b142 status= 1" 
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: eb3825d48ea118e4def4bad5abfac9649539dfcc3358ed123022cb42bd2aae09 0" 
+QDEBUG : WalletTests::walletTests() "    inModel=0 Index=2-2 showTransaction=1 derivedStatus=0" 
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: 55df5c8cea805da80826faba66f9936c2c6a44185bc8a2ba2703281a15b1b142 1" 
+QDEBUG : WalletTests::walletTests() "    inModel=1 Index=29-30 showTransaction=1 derivedStatus=1" 
+QWARN  : WalletTests::walletTests() This plugin does not support raise()
+QWARN  : WalletTests::walletTests() This plugin does not support grabbing the keyboard
+QWARN  : WalletTests::walletTests() This plugin does not support propagateSizeHints()
+QWARN  : WalletTests::walletTests() This plugin does not support raise()
+QWARN  : WalletTests::walletTests() This plugin does not support grabbing the keyboard
+QWARN  : WalletTests::walletTests() This plugin does not support propagateSizeHints()
+QWARN  : WalletTests::walletTests() This plugin does not support raise()
+QWARN  : WalletTests::walletTests() This plugin does not support grabbing the keyboard
+QWARN  : WalletTests::walletTests() This plugin does not support propagateSizeHints()
+QDEBUG : WalletTests::walletTests() "NotifyTransactionChanged: b0460804340e9feab37fcc282e0ebe69702000434ca92268ada89b61d41d4a9b status= 0" 
+QDEBUG : WalletTests::walletTests() "NotifyTransactionChanged: 55df5c8cea805da80826faba66f9936c2c6a44185bc8a2ba2703281a15b1b142 status= 1" 
+QDEBUG : WalletTests::walletTests() "NotifyTransactionChanged: eb3825d48ea118e4def4bad5abfac9649539dfcc3358ed123022cb42bd2aae09 status= 1" 
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: eb3825d48ea118e4def4bad5abfac9649539dfcc3358ed123022cb42bd2aae09 1" 
+QDEBUG : WalletTests::walletTests() "    inModel=1 Index=2-3 showTransaction=1 derivedStatus=1" 
+QWARN  : WalletTests::walletTests() This plugin does not support raise()
+QWARN  : WalletTests::walletTests() This plugin does not support grabbing the keyboard
+QWARN  : WalletTests::walletTests() This plugin does not support propagateSizeHints()
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: b0460804340e9feab37fcc282e0ebe69702000434ca92268ada89b61d41d4a9b 0" 
+QDEBUG : WalletTests::walletTests() "    inModel=0 Index=54-54 showTransaction=1 derivedStatus=0" 
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: 55df5c8cea805da80826faba66f9936c2c6a44185bc8a2ba2703281a15b1b142 1" 
+QDEBUG : WalletTests::walletTests() "    inModel=1 Index=29-30 showTransaction=1 derivedStatus=1" 
+QDEBUG : WalletTests::walletTests() "TransactionTablePriv::updateWallet: eb3825d48ea118e4def4bad5abfac9649539dfcc3358ed123022cb42bd2aae09 1" 
+QDEBUG : WalletTests::walletTests() "    inModel=1 Index=2-3 showTransaction=1 derivedStatus=1" 
+QDEBUG : WalletTests::walletTests() "NotifyAddressBookChanged: mx3xhCxiHVxPThPR3iGXVwSM8KffKoa4aY TEST_LABEL_1 isMine=1 purpose=receive status=0" 
+QWARN  : WalletTests::walletTests() This plugin does not support propagateSizeHints()
+PASS   : WalletTests::walletTests()
+PASS   : WalletTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped
+********* Finished testing of WalletTests *********
+********* Start testing of AddressBookTests *********
+Config: Using QtTest library 5.2.1, Qt 5.2.1
+PASS   : AddressBookTests::initTestCase()
+QDEBUG : AddressBookTests::addressBookTests() TransactionTablePriv::refreshWallet 
+QWARN  : AddressBookTests::addressBookTests() This plugin does not support propagateSizeHints()
+QWARN  : AddressBookTests::addressBookTests() This plugin does not support propagateSizeHints()
+QDEBUG : AddressBookTests::addressBookTests() "NotifyAddressBookChanged: 2Mw7JVxSx5VtRKRbqPvxdaBkjFFALqEmPGU new isMine=0 purpose=send status=0" 
+PASS   : AddressBookTests::addressBookTests()
+PASS   : AddressBookTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped
+********* Finished testing of AddressBookTests *********
