@@ -512,7 +512,7 @@ set(BITCOIN_QT_SRC
         src/qt/coincontroltreewidget.cpp
         src/qt/csvmodelwriter.cpp
         src/qt/editaddressdialog.cpp
-        src/qt/guiutil.cpp
+        #src/qt/guiutil.cpp
         src/qt/intro.cpp
         src/qt/moc_addressbookpage.cpp
         src/qt/moc_addresstablemodel.cpp
@@ -528,7 +528,7 @@ set(BITCOIN_QT_SRC
         src/qt/moc_coincontroltreewidget.cpp
         src/qt/moc_csvmodelwriter.cpp
         src/qt/moc_editaddressdialog.cpp
-        src/qt/moc_guiutil.cpp
+        #src/qt/moc_guiutil.cpp
         src/qt/moc_intro.cpp
         src/qt/moc_macdockiconhandler.cpp
         src/qt/moc_macnotificationhandler.cpp
@@ -608,6 +608,7 @@ target_include_directories(bitcoin-qt PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtCore
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtNetwork
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtWidgets
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/include/QtDBus
         ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
         )
 
@@ -621,15 +622,26 @@ add_library(QtWidgets_lib STATIC IMPORTED)
 set_target_properties(QtWidgets_lib PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtWidgets)
 
+add_library(QtGui_lib STATIC IMPORTED)
+set_target_properties(QtGui_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtGui)
+
+add_library(protobuf_lib STATIC IMPORTED)
+set_target_properties(protobuf_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/protobuf/libprotobuf.a)
+
 target_link_libraries(bitcoin-qt
         bitcoin
+        event
         univalue
+        protobuf_lib
         crypto_lib
         ssl_lib
         db_lib
         db_cxx_lib
         QtCore_lib
         QtWidgets_lib
+        QtGui_lib
         event
         boost_system
         boost_filesystem
