@@ -519,8 +519,11 @@ set(BITCOIN_QT_SRC
         src/qt/coincontroltreewidget.cpp
         src/qt/csvmodelwriter.cpp
         src/qt/editaddressdialog.cpp
-        #src/qt/guiutil.cpp
+        src/qt/guiutil.cpp
         src/qt/intro.cpp
+        src/qt/intro.moc
+        src/qt/macdockiconhandler.mm
+        src/qt/macnotificationhandler.mm
         src/qt/moc_addressbookpage.cpp
         src/qt/moc_addresstablemodel.cpp
         src/qt/moc_askpassphrasedialog.cpp
@@ -629,6 +632,10 @@ add_library(QtWidgets_lib STATIC IMPORTED)
 set_target_properties(QtWidgets_lib PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtWidgets)
 
+add_library(QtNetwork_lib STATIC IMPORTED)
+set_target_properties(QtNetwork_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtNetwork)
+
 add_library(QtGui_lib STATIC IMPORTED)
 set_target_properties(QtGui_lib PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtGui)
@@ -649,7 +656,12 @@ target_link_libraries(bitcoin-qt
         QtCore_lib
         QtWidgets_lib
         QtGui_lib
+        QtNetwork_lib
+        qrencode
+        leveldb
         event
+        objc
+        event_pthreads
         boost_system
         boost_filesystem
         boost_program_options
