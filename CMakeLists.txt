@@ -1,11 +1,16 @@
 cmake_minimum_required(VERSION 3.6)
 project(ddcode)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14" )
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -mavx -mavx2" )
 
 ADD_DEFINITIONS(-DHAVE_CONFIG_H)
 ADD_DEFINITIONS(-DLEVELDB_PLATFORM_POSIX)
 ADD_DEFINITIONS(-DOS_MACOSX)
+ADD_DEFINITIONS(-DENABLE_SSE41)
+ADD_DEFINITIONS(-DENABLE_AVX2)
+ADD_DEFINITIONS(-DUSE_ASM)
+
+
 #ADD_DEFINITIONS(-DUSE_DB4)
 
 add_library(crypto_lib STATIC IMPORTED)
@@ -356,7 +361,9 @@ set(BITCOIN_SRC
         src/crypto/ripemd160.cpp
         src/crypto/sha1.cpp
         src/crypto/sha256.cpp
+        src/crypto/sha256_avx2.cpp
         src/crypto/sha256_sse4.cpp
+        src/crypto/sha256_sse41.cpp
         src/crypto/sha512.cpp
         src/index/txindex.cpp
         src/index/base.cpp
