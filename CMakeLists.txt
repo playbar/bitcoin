@@ -7,7 +7,7 @@ ADD_DEFINITIONS(-DHAVE_CONFIG_H)
 ADD_DEFINITIONS(-DLEVELDB_PLATFORM_POSIX)
 ADD_DEFINITIONS(-DOS_MACOSX)
 ADD_DEFINITIONS(-DUSE_ASM)
-#ADD_DEFINITIONS(-DENABLE_AVX2)
+ADD_DEFINITIONS(-DENABLE_AVX2)
 #ADD_DEFINITIONS(-DUSE_DB4)
 
 add_library(crypto_lib STATIC IMPORTED)
@@ -623,6 +623,8 @@ set(bitcoin_crypto_base_src
         src/crypto/sha256.h
         src/crypto/sha512.cpp
         src/crypto/sha512.h
+        src/crypto/sha256_sse4.cpp
+        src/crypto/sha256_avx2.cpp
         src/secp256k1/src/bench_internal.c
         )
 add_library(bitcoin_crypto_base ${bitcoin_crypto_base_src})
