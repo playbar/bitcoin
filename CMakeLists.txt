@@ -6,6 +6,8 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14" )
 ADD_DEFINITIONS(-DHAVE_CONFIG_H)
 ADD_DEFINITIONS(-DLEVELDB_PLATFORM_POSIX)
 ADD_DEFINITIONS(-DOS_MACOSX)
+ADD_DEFINITIONS(-DUSE_ASM)
+#ADD_DEFINITIONS(-DENABLE_AVX2)
 #ADD_DEFINITIONS(-DUSE_DB4)
 
 add_library(crypto_lib STATIC IMPORTED)
@@ -290,113 +292,118 @@ target_include_directories(db_cxx_lib PRIVATE
 # bitcoin
 
 set(BITCOIN_SRC
-        src/addrdb.cpp
-        src/addrman.cpp
-        src/arith_uint256.cpp
-        src/bech32.cpp
-        src/base58.cpp
-        src/blockencodings.cpp
-        src/bloom.cpp
-        src/chain.cpp
-        src/chainparams.cpp
-        src/chainparamsbase.cpp
-        src/checkpoints.cpp
-        src/clientversion.cpp
-        src/coins.cpp
-        src/compressor.cpp
-        src/core_read.cpp
-        src/core_write.cpp
-        src/dbwrapper.cpp
-        src/fs.cpp
-        src/hash.cpp
-        src/httprpc.cpp
-        src/httpserver.cpp
-        src/init.cpp
-        src/key.cpp
-        src/key_io.cpp
-        src/keystore.cpp
-        src/logging.cpp
-        src/merkleblock.cpp
-        src/miner.cpp
-        src/net.cpp
-        src/net_processing.cpp
-        src/netaddress.cpp
-        src/netbase.cpp
-        src/noui.cpp
-        src/pow.cpp
-        src/protocol.cpp
-        src/pubkey.cpp
-        src/random.cpp
-        src/rest.cpp
-        src/scheduler.cpp
-        src/threadinterrupt.cpp
-        src/timedata.cpp
-        src/torcontrol.cpp
-        src/txmempool.cpp
-        src/txdb.cpp
-        src/uint256.cpp
-        src/util.cpp
-        src/utilstrencodings.cpp
-        src/utiltime.cpp
-        src/ui_interface.cpp
-        src/utilmoneystr.cpp
-        src/validation.cpp
-        src/validationinterface.cpp
-        src/versionbits.cpp
-        src/warnings.cpp
-        ###########
-        src/compat/glibc_sanity.cpp
-        src/compat/glibcxx_sanity.cpp
-        src/consensus/merkle.cpp
-        src/consensus/tx_verify.cpp
-        src/crypto/aes.cpp
-        src/crypto/chacha20.cpp
-        src/crypto/hmac_sha256.cpp
-        src/crypto/hmac_sha512.cpp
-        src/crypto/ripemd160.cpp
-        src/crypto/sha1.cpp
-        src/crypto/sha256.cpp
-        src/crypto/sha256_sse4.cpp
-        src/crypto/sha512.cpp
-        src/index/txindex.cpp
-        src/index/base.cpp
-        src/leveldb/helpers/memenv/memenv.cc
-        src/leveldb/util/status.cc
-        src/primitives/block.cpp
-        src/primitives/transaction.cpp
-        src/policy/feerate.cpp
-        src/policy/fees.cpp
-        src/policy/policy.cpp
-        src/policy/rbf.cpp
-        src/rpc/blockchain.cpp
-        src/rpc/client.cpp
-        src/rpc/mining.cpp
-        src/rpc/misc.cpp
-        src/rpc/net.cpp
-        src/rpc/protocol.cpp
-        src/rpc/rawtransaction.cpp
-        src/rpc/server.cpp
-        src/rpc/util.cpp
-        src/script/interpreter.cpp
-        src/script/ismine.cpp
-        src/script/script.cpp
-        src/script/script_error.cpp
-        src/script/sigcache.cpp
-        src/script/sign.cpp
-        src/script/standard.cpp
-        src/secp256k1/src/secp256k1.c
-        src/support/cleanse.cpp
-        src/support/lockedpool.cpp
-        src/wallet/coinselection.cpp
-        src/wallet/crypter.cpp
-        src/wallet/db.cpp
-        src/wallet/feebumper.cpp
-        src/wallet/fees.cpp
-        src/wallet/init.cpp
-        src/wallet/rpcdump.cpp
-        src/wallet/rpcwallet.cpp
-        src/wallet/wallet.cpp
-        src/wallet/walletdb.cpp
+#        src/addrdb.cpp
+#        src/addrman.cpp
+#        src/arith_uint256.cpp
+#        src/bech32.cpp
+#        src/base58.cpp
+#        src/blockencodings.cpp
+#        src/bloom.cpp
+#        src/chain.cpp
+#        src/chainparams.cpp
+#        src/chainparamsbase.cpp
+#        src/checkpoints.cpp
+#        src/clientversion.cpp
+#        src/coins.cpp
+#        src/compressor.cpp
+#        src/core_read.cpp
+#        src/core_write.cpp
+#        src/dbwrapper.cpp
+#        src/fs.cpp
+#        src/hash.cpp
+#        src/httprpc.cpp
+#        src/httpserver.cpp
+#        src/init.cpp
+#        src/key.cpp
+#        src/key_io.cpp
+#        src/keystore.cpp
+#        src/logging.cpp
+#        src/merkleblock.cpp
+#        src/miner.cpp
+#        src/net.cpp
+#        src/net_processing.cpp
+#        src/netaddress.cpp
+#        src/netbase.cpp
+#        src/noui.cpp
+#        src/pow.cpp
+#        src/protocol.cpp
+#        src/pubkey.cpp
+#        src/random.cpp
+#        src/rest.cpp
+#        src/scheduler.cpp
+#        src/threadinterrupt.cpp
+#        src/timedata.cpp
+#        src/torcontrol.cpp
+#        src/txmempool.cpp
+#        src/txdb.cpp
+#        src/uint256.cpp
+#        src/util.cpp
+#        src/utilstrencodings.cpp
+#        src/utiltime.cpp
+#        src/ui_interface.cpp
+#        src/utilmoneystr.cpp
+#        src/validation.cpp
+#        src/validationinterface.cpp
+#        src/versionbits.cpp
+#        src/warnings.cpp
+#        ###########
+#        src/compat/glibc_sanity.cpp
+#        src/compat/glibcxx_sanity.cpp
+#        src/consensus/merkle.cpp
+#        src/consensus/tx_verify.cpp
+#        src/crypto/aes.cpp
+#        src/crypto/chacha20.cpp
+#        src/crypto/hmac_sha256.cpp
+#        src/crypto/hmac_sha512.cpp
+#        src/crypto/ripemd160.cpp
+#        src/crypto/sha1.cpp
+#        src/crypto/sha256.cpp
+#        src/crypto/sha256_avx2.cpp
+#        src/crypto/sha256_sse4.cpp
+#        src/crypto/sha256_sse41.cpp
+#        src/crypto/sha512.cpp
+#        src/index/txindex.cpp
+#        src/index/base.cpp
+#        src/interfaces/handler.cpp
+#        src/interfaces/node.cpp
+#        src/interfaces/wallet.cpp
+#        src/leveldb/helpers/memenv/memenv.cc
+#        src/leveldb/util/status.cc
+#        src/primitives/block.cpp
+#        src/primitives/transaction.cpp
+#        src/policy/feerate.cpp
+#        src/policy/fees.cpp
+#        src/policy/policy.cpp
+#        src/policy/rbf.cpp
+#        src/rpc/blockchain.cpp
+#        src/rpc/client.cpp
+#        src/rpc/mining.cpp
+#        src/rpc/misc.cpp
+#        src/rpc/net.cpp
+#        src/rpc/protocol.cpp
+#        src/rpc/rawtransaction.cpp
+#        src/rpc/server.cpp
+#        src/rpc/util.cpp
+#        src/script/interpreter.cpp
+#        src/script/ismine.cpp
+#        src/script/script.cpp
+#        src/script/script_error.cpp
+#        src/script/sigcache.cpp
+#        src/script/sign.cpp
+#        src/script/standard.cpp
+#        src/secp256k1/src/secp256k1.c
+#        src/support/cleanse.cpp
+#        src/support/lockedpool.cpp
+#        src/wallet/coinselection.cpp
+#        src/wallet/crypter.cpp
+#        src/wallet/db.cpp
+#        src/wallet/feebumper.cpp
+#        src/wallet/fees.cpp
+#        src/wallet/init.cpp
+#        src/wallet/rpcdump.cpp
+#        src/wallet/rpcwallet.cpp
+#        src/wallet/wallet.cpp
+#        src/wallet/walletdb.cpp
         src/wallet/walletutil.cpp
   )
 
@@ -411,6 +418,289 @@ target_include_directories(bitcoin PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
         )
 
+
+#bitcoin_server
+set(bitcoin_server_src
+        src/addrdb.cpp
+        src/addrman.cpp
+        src/bloom.cpp
+        src/blockencodings.cpp
+        src/chain.cpp
+        src/checkpoints.cpp
+        src/consensus/tx_verify.cpp
+        src/httprpc.cpp
+        src/httpserver.cpp
+        src/index/base.cpp
+        src/index/txindex.cpp
+        src/init.cpp
+        src/dbwrapper.cpp
+        src/merkleblock.cpp
+        src/miner.cpp
+        src/net.cpp
+        src/net_processing.cpp
+        src/noui.cpp
+        src/policy/fees.cpp
+        src/policy/policy.cpp
+        src/policy/rbf.cpp
+        src/pow.cpp
+        src/rest.cpp
+        src/rpc/blockchain.cpp
+        src/rpc/mining.cpp
+        src/rpc/misc.cpp
+        src/rpc/net.cpp
+        src/rpc/rawtransaction.cpp
+        src/rpc/server.cpp
+        src/script/sigcache.cpp
+        src/timedata.cpp
+        src/torcontrol.cpp
+        src/txdb.cpp
+        src/txmempool.cpp
+        src/ui_interface.cpp
+        src/validation.cpp
+        src/validationinterface.cpp
+        src/versionbits.cpp
+        )
+
+add_library(bitcoin_server ${bitcoin_server_src})
+target_include_directories(bitcoin_server PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
+        )
+
+##bitcoin_common
+set(bitcoin_common_src
+        src/base58.cpp
+        src/bech32.cpp
+        src/chainparams.cpp
+        src/coins.cpp
+        src/compressor.cpp
+        src/core_read.cpp
+        src/core_write.cpp
+        src/key.cpp
+        src/key_io.cpp
+        src/keystore.cpp
+        src/netaddress.cpp
+        src/netbase.cpp
+        src/policy/feerate.cpp
+        src/protocol.cpp
+        src/scheduler.cpp
+        src/script/ismine.cpp
+        src/script/sign.cpp
+        src/script/standard.cpp
+        src/warnings.cpp
+        )
+add_library(bitcoin_common ${bitcoin_common_src})
+target_include_directories(bitcoin_common PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
+        )
+
+
+##bitcoin_consensus
+set(bitcoin_consensus_src
+        src/amount.h
+        src/arith_uint256.cpp
+        src/arith_uint256.h
+        src/consensus/merkle.cpp
+        src/consensus/merkle.h
+        src/consensus/params.h
+        src/consensus/validation.h
+        src/hash.cpp
+        src/hash.h
+        src/prevector.h
+        src/primitives/block.cpp
+        src/primitives/block.h
+        src/primitives/transaction.cpp
+        src/primitives/transaction.h
+        src/pubkey.cpp
+        src/pubkey.h
+        src/script/bitcoinconsensus.cpp
+        src/script/interpreter.cpp
+        src/script/interpreter.h
+        src/script/script.cpp
+        src/script/script.h
+        src/script/script_error.cpp
+        src/script/script_error.h
+        src/serialize.h
+        src/span.h
+        src/tinyformat.h
+        src/uint256.cpp
+        src/uint256.h
+        src/utilstrencodings.cpp
+        src/utilstrencodings.h
+        src/version.h
+)
+add_library(bitcoin_consensus ${bitcoin_consensus_src})
+target_include_directories(bitcoin_consensus PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
+        )
+
+##bitcoin_cli
+set(bitcoin_cli_src
+        src/rpc/client.cpp
+        )
+add_library(bitcoin_cli ${bitcoin_cli_src})
+target_include_directories(bitcoin_cli PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
+        )
+
+##bitcoin_util
+set(bitcoin_util_src
+        src/support/lockedpool.cpp
+        src/chainparamsbase.cpp
+        src/clientversion.cpp
+        src/compat/glibc_sanity.cpp
+        src/compat/glibcxx_sanity.cpp
+        src/compat/strnlen.cpp
+        src/fs.cpp
+        src/interfaces/handler.cpp
+        src/interfaces/node.cpp
+        src/logging.cpp
+        src/random.cpp
+        src/rpc/protocol.cpp
+        src/rpc/util.cpp
+        src/support/cleanse.cpp
+        src/sync.cpp
+        src/threadinterrupt.cpp
+        src/util.cpp
+        src/utilmoneystr.cpp
+        src/utilstrencodings.cpp
+        src/utiltime.cpp
+        )
+add_library(bitcoin_util ${bitcoin_util_src})
+target_include_directories(bitcoin_util PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include)
+
+##bitcoin_crypto_base
+set(bitcoin_crypto_base_src
+        src/crypto/aes.cpp
+        src/crypto/aes.h
+        src/crypto/chacha20.h
+        src/crypto/chacha20.cpp
+        src/crypto/common.h
+        src/crypto/hmac_sha256.cpp
+        src/crypto/hmac_sha256.h
+        src/crypto/hmac_sha512.cpp
+        src/crypto/hmac_sha512.h
+        src/crypto/ripemd160.cpp
+        src/crypto/ripemd160.h
+        src/crypto/sha1.cpp
+        src/crypto/sha1.h
+        src/crypto/sha256.cpp
+        src/crypto/sha256.h
+        src/crypto/sha512.cpp
+        src/crypto/sha512.h
+        src/secp256k1/src/bench_internal.c
+        )
+add_library(bitcoin_crypto_base ${bitcoin_crypto_base_src})
+target_include_directories(bitcoin_crypto_base PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include)
+
+####
+
+
+##secp256k1
+set(secp256k1_src
+        src/secp256k1/src/bench_internal.c
+        )
+
+add_library(secp256k1 ${secp256k1_src})
+target_include_directories(secp256k1 PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include)
+
+#set(BITCOIN_CLI_SRC
+#        src/bitcoin-cli.cpp)
+#
+#add_executable(bitcoin-cli ${BITCOIN_CLI_SRC})
+#target_include_directories(bitcoin-cli PRIVATE
+#        ${CMAKE_CURRENT_SOURCE_DIR}/src
+#        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
+#        )
+#target_link_libraries(bitcoin-cli
+#        bitcoin
+#        univalue
+#        crypto_lib
+#        ssl_lib
+#        event
+#        boost_system
+#        boost_filesystem
+#        boost_program_options
+#        boost_thread
+#        )
+
+##libbitcoin_wallet
+set(bitcoin_wallet_src
+        src/interfaces/wallet.cpp
+        src/wallet/crypter.cpp
+        src/wallet/db.cpp
+        src/wallet/feebumper.cpp
+        src/wallet/fees.cpp
+        src/wallet/init.cpp
+        src/wallet/rpcdump.cpp
+        src/wallet/rpcwallet.cpp
+        src/wallet/wallet.cpp
+        src/wallet/walletdb.cpp
+        src/wallet/walletutil.cpp
+        src/wallet/coinselection.cpp
+        )
+add_library(bitcoin_wallet ${bitcoin_wallet_src})
+target_include_directories(bitcoin_wallet PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include)
+
 ### univalue
 set(UNIVALUE_SRC
         src/univalue/lib/univalue.cpp
@@ -423,17 +713,35 @@ target_include_directories(univalue PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
         )
 
+
+##leveldb
+
+
 #########
 set(BITCOIND_SRC
         src/bitcoind.cpp)
 
 add_executable(bitcoind ${BITCOIND_SRC})
 target_include_directories(bitcoind PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/db_src/include
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/secp256k1
         ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
         )
 target_link_libraries(bitcoind
         bitcoin
+        bitcoin_server
+        bitcoin_common
+        bitcoin_consensus
+        bitcoin_cli
+        bitcoin_util
+        bitcoin_crypto_base
+        bitcoin_wallet
+        secp256k1
         univalue
         crypto_lib
         ssl_lib
@@ -447,29 +755,6 @@ target_link_libraries(bitcoind
         boost_program_options
         boost_thread
         boost_chrono
-        )
-
-
-####
-
-set(BITCOIN_CLI_SRC
-        src/bitcoin-cli.cpp)
-
-add_executable(bitcoin-cli ${BITCOIN_CLI_SRC})
-target_include_directories(bitcoin-cli PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/univalue/include
-        )
-target_link_libraries(bitcoin-cli
-        bitcoin
-        univalue
-        crypto_lib
-        ssl_lib
-        event
-        boost_system
-        boost_filesystem
-        boost_program_options
-        boost_thread
         )
 
 ################
@@ -514,6 +799,7 @@ set(BITCOIN_QT_SRC
         src/qt/editaddressdialog.cpp
         #src/qt/guiutil.cpp
         src/qt/intro.cpp
+        src/qt/macdockiconhandler.mm
         src/qt/moc_addressbookpage.cpp
         src/qt/moc_addresstablemodel.cpp
         src/qt/moc_askpassphrasedialog.cpp
@@ -626,13 +912,22 @@ add_library(QtGui_lib STATIC IMPORTED)
 set_target_properties(QtGui_lib PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtGui)
 
+add_library(QtNetwork_lib STATIC IMPORTED)
+set_target_properties(QtNetwork_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtNetwork)
+
+add_library(QtDBus_lib STATIC IMPORTED)
+set_target_properties(QtDBus_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtDBus)
+
+
 add_library(protobuf_lib STATIC IMPORTED)
 set_target_properties(protobuf_lib PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/protobuf/libprotobuf.a)
 
 target_link_libraries(bitcoin-qt
+        qrencode
         bitcoin
-        event
         univalue
         protobuf_lib
         crypto_lib
@@ -642,11 +937,14 @@ target_link_libraries(bitcoin-qt
         QtCore_lib
         QtWidgets_lib
         QtGui_lib
+        QtNetwork_lib
+        QtDBus_lib
         event
         boost_system
         boost_filesystem
         boost_program_options
         boost_thread
+        event
         )
 
 ################

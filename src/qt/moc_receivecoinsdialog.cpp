@@ -11,54 +11,58 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'receivecoinsdialog.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.11.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ReceiveCoinsDialog_t {
-    QByteArrayData data[21];
-    char stringdata[313];
+    QByteArrayData data[22];
+    char stringdata0[324];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_ReceiveCoinsDialog_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_ReceiveCoinsDialog_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_ReceiveCoinsDialog_t qt_meta_stringdata_ReceiveCoinsDialog = {
     {
-QT_MOC_LITERAL(0, 0, 18),
-QT_MOC_LITERAL(1, 19, 5),
-QT_MOC_LITERAL(2, 25, 0),
-QT_MOC_LITERAL(3, 26, 6),
-QT_MOC_LITERAL(4, 33, 6),
-QT_MOC_LITERAL(5, 40, 24),
-QT_MOC_LITERAL(6, 65, 28),
-QT_MOC_LITERAL(7, 94, 30),
-QT_MOC_LITERAL(8, 125, 35),
-QT_MOC_LITERAL(9, 161, 5),
-QT_MOC_LITERAL(10, 167, 35),
-QT_MOC_LITERAL(11, 203, 14),
-QT_MOC_LITERAL(12, 218, 8),
-QT_MOC_LITERAL(13, 227, 10),
-QT_MOC_LITERAL(14, 238, 17),
-QT_MOC_LITERAL(15, 256, 8),
-QT_MOC_LITERAL(16, 265, 5),
-QT_MOC_LITERAL(17, 271, 7),
-QT_MOC_LITERAL(18, 279, 9),
-QT_MOC_LITERAL(19, 289, 11),
-QT_MOC_LITERAL(20, 301, 10)
+QT_MOC_LITERAL(0, 0, 18), // "ReceiveCoinsDialog"
+QT_MOC_LITERAL(1, 19, 5), // "clear"
+QT_MOC_LITERAL(2, 25, 0), // ""
+QT_MOC_LITERAL(3, 26, 6), // "reject"
+QT_MOC_LITERAL(4, 33, 6), // "accept"
+QT_MOC_LITERAL(5, 40, 24), // "on_receiveButton_clicked"
+QT_MOC_LITERAL(6, 65, 28), // "on_showRequestButton_clicked"
+QT_MOC_LITERAL(7, 94, 30), // "on_removeRequestButton_clicked"
+QT_MOC_LITERAL(8, 125, 35), // "on_recentRequestsView_doubleC..."
+QT_MOC_LITERAL(9, 161, 11), // "QModelIndex"
+QT_MOC_LITERAL(10, 173, 5), // "index"
+QT_MOC_LITERAL(11, 179, 35), // "recentRequestsView_selectionC..."
+QT_MOC_LITERAL(12, 215, 14), // "QItemSelection"
+QT_MOC_LITERAL(13, 230, 8), // "selected"
+QT_MOC_LITERAL(14, 239, 10), // "deselected"
+QT_MOC_LITERAL(15, 250, 17), // "updateDisplayUnit"
+QT_MOC_LITERAL(16, 268, 8), // "showMenu"
+QT_MOC_LITERAL(17, 277, 5), // "point"
+QT_MOC_LITERAL(18, 283, 7), // "copyURI"
+QT_MOC_LITERAL(19, 291, 9), // "copyLabel"
+QT_MOC_LITERAL(20, 301, 11), // "copyMessage"
+QT_MOC_LITERAL(21, 313, 10) // "copyAmount"
+
     },
     "ReceiveCoinsDialog\0clear\0\0reject\0"
     "accept\0on_receiveButton_clicked\0"
     "on_showRequestButton_clicked\0"
     "on_removeRequestButton_clicked\0"
     "on_recentRequestsView_doubleClicked\0"
-    "index\0recentRequestsView_selectionChanged\0"
+    "QModelIndex\0index\0recentRequestsView_selectionChanged\0"
     "QItemSelection\0selected\0deselected\0"
     "updateDisplayUnit\0showMenu\0point\0"
-    "copyURI\0copyLabel\0copyMessage\0copyAmount\0"
+    "copyURI\0copyLabel\0copyMessage\0copyAmount"
 };
 #undef QT_MOC_LITERAL
 
@@ -76,20 +80,20 @@ static const uint qt_meta_data_ReceiveCoinsDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   84,    2, 0x0a,
-       3,    0,   85,    2, 0x0a,
-       4,    0,   86,    2, 0x0a,
-       5,    0,   87,    2, 0x08,
-       6,    0,   88,    2, 0x08,
-       7,    0,   89,    2, 0x08,
-       8,    1,   90,    2, 0x08,
-      10,    2,   93,    2, 0x08,
-      14,    0,   98,    2, 0x08,
-      15,    1,   99,    2, 0x08,
-      17,    0,  102,    2, 0x08,
-      18,    0,  103,    2, 0x08,
-      19,    0,  104,    2, 0x08,
-      20,    0,  105,    2, 0x08,
+       1,    0,   84,    2, 0x0a /* Public */,
+       3,    0,   85,    2, 0x0a /* Public */,
+       4,    0,   86,    2, 0x0a /* Public */,
+       5,    0,   87,    2, 0x08 /* Private */,
+       6,    0,   88,    2, 0x08 /* Private */,
+       7,    0,   89,    2, 0x08 /* Private */,
+       8,    1,   90,    2, 0x08 /* Private */,
+      11,    2,   93,    2, 0x08 /* Private */,
+      15,    0,   98,    2, 0x08 /* Private */,
+      16,    1,   99,    2, 0x08 /* Private */,
+      18,    0,  102,    2, 0x08 /* Private */,
+      19,    0,  103,    2, 0x08 /* Private */,
+      20,    0,  104,    2, 0x08 /* Private */,
+      21,    0,  105,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -98,10 +102,10 @@ static const uint qt_meta_data_ReceiveCoinsDialog[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QModelIndex,    9,
-    QMetaType::Void, 0x80000000 | 11, 0x80000000 | 11,   12,   13,
+    QMetaType::Void, 0x80000000 | 9,   10,
+    QMetaType::Void, 0x80000000 | 12, 0x80000000 | 12,   13,   14,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QPoint,   16,
+    QMetaType::Void, QMetaType::QPoint,   17,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -114,6 +118,7 @@ void ReceiveCoinsDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         ReceiveCoinsDialog *_t = static_cast<ReceiveCoinsDialog *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->clear(); break;
         case 1: _t->reject(); break;
@@ -131,12 +136,24 @@ void ReceiveCoinsDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         case 13: _t->copyAmount(); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 7:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 1:
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QItemSelection >(); break;
+            }
+            break;
+        }
     }
 }
 
-const QMetaObject ReceiveCoinsDialog::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject ReceiveCoinsDialog::staticMetaObject = {
     { &QDialog::staticMetaObject, qt_meta_stringdata_ReceiveCoinsDialog.data,
-      qt_meta_data_ReceiveCoinsDialog,  qt_static_metacall, 0, 0}
+      qt_meta_data_ReceiveCoinsDialog,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -147,9 +164,9 @@ const QMetaObject *ReceiveCoinsDialog::metaObject() const
 
 void *ReceiveCoinsDialog::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_ReceiveCoinsDialog.stringdata))
-        return static_cast<void*>(const_cast< ReceiveCoinsDialog*>(this));
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_ReceiveCoinsDialog.stringdata0))
+        return static_cast<void*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
@@ -164,9 +181,10 @@ int ReceiveCoinsDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 14)
-            *reinterpret_cast<int*>(_a[0]) = -1;
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 14;
     }
     return _id;
 }
+QT_WARNING_POP
 QT_END_MOC_NAMESPACE

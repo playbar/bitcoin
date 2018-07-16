@@ -35,6 +35,12 @@
 /* Copyright year */
 #define COPYRIGHT_YEAR 2018
 
+/* Define this symbol to build code that uses AVX2 intrinsics */
+#define ENABLE_AVX2 0
+
+/* Define this symbol to build code that uses SSE4.1 intrinsics */
+#define ENABLE_SSE41 1
+
 /* Define to 1 to enable wallet functions */
 #define ENABLE_WALLET 1
 
@@ -276,12 +282,6 @@
 
 /* Define to 1 if you have the <miniupnpc/upnperrors.h> header file. */
 /* #undef HAVE_MINIUPNPC_UPNPERRORS_H */
-
-/* Define this symbol if you have MSG_DONTWAIT */
-/* #undef HAVE_MSG_DONTWAIT */
-
-/* Define this symbol if you have MSG_NOSIGNAL */
-/* #undef HAVE_MSG_NOSIGNAL */
 
 /* Define if you have POSIX threads libraries and header files. */
 #define HAVE_PTHREAD 1

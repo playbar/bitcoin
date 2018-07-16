@@ -132,7 +132,8 @@ CONFIG_CLEAN_FILES = libbitcoinconsensus.pc share/setup.nsi \
 	share/qt/Info.plist test/config.ini \
 	contrib/devtools/split-debug.sh doc/Doxyfile
 CONFIG_CLEAN_VPATH_FILES = contrib/filter-lcov.py \
-	test/functional/test_runner.py test/util/bitcoin-util-test.py
+	test/functional/test_runner.py test/util/bitcoin-util-test.py \
+	test/util/rpcauth-test.py
 SCRIPTS = $(dist_noinst_SCRIPTS)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -235,9 +236,11 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/bitcoin-config.h.in \
 	$(top_srcdir)/test/config.ini.in \
 	$(top_srcdir)/test/functional/test_runner.py \
-	$(top_srcdir)/test/util/bitcoin-util-test.py COPYING \
+	$(top_srcdir)/test/util/bitcoin-util-test.py \
+	$(top_srcdir)/test/util/rpcauth-test.py COPYING \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
+	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
+	build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -288,6 +291,7 @@ ARFLAGS = cr
 AUTOCONF = ${SHELL} /mywork/github/bitcoin/build-aux/missing autoconf
 AUTOHEADER = ${SHELL} /mywork/github/bitcoin/build-aux/missing autoheader
 AUTOMAKE = ${SHELL} /mywork/github/bitcoin/build-aux/missing automake-1.16
+AVX2_CXXFLAGS = -mavx -mavx2
 AWK = awk
 BDB_CFLAGS = 
 BDB_CPPFLAGS = 
@@ -329,9 +333,12 @@ CXXCPP = g++ -std=c++11 -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
+DEBUG_CPPFLAGS = 
+DEBUG_CXXFLAGS = 
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 DLLTOOL = false
+DOXYGEN = /usr/local/bin/doxygen
 DSYMUTIL = dsymutil
 DUMPBIN = 
 ECHO_C = \c
@@ -350,6 +357,8 @@ GCOV = /opt/local/bin/gcov
 GENHTML = 
 GENISOIMAGE = 
 GIT = /usr/local/bin/git
+GPROF_CXXFLAGS = 
+GPROF_LDFLAGS = 
 GREP = /usr/bin/grep
 HARDENED_CPPFLAGS =  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2
 HARDENED_CXXFLAGS =  -Wstack-protector -fstack-protector-all
@@ -392,6 +401,7 @@ MOC = /usr/local/Cellar/qt/5.11.0/bin/moc
 MOC_DEFS = -DHAVE_CONFIG_H -I$(srcdir) -DQ_OS_MAC
 NM = /opt/local/bin/nm -B
 NMEDIT = nmedit
+NOWARN_CXXFLAGS =  -Wno-unused-parameter -Wno-implicit-fallthrough
 OBJCOPY = 
 OBJCXX = g++ -std=c++11
 OBJCXXDEPMODE = depmode=gcc3
@@ -451,9 +461,12 @@ RCC = /usr/local/Cellar/qt/5.11.0/bin/rcc
 READELF = 
 RELDFLAGS = 
 RSVG_CONVERT = /usr/local/bin/rsvg-convert
+SANITIZER_CXXFLAGS = 
+SANITIZER_LDFLAGS = 
 SED = /usr/bin/sed
 SET_MAKE = 
 SHELL = /bin/sh
+SSE41_CXXFLAGS = -msse4.1
 SSE42_CXXFLAGS = -msse4.2
 SSL_CFLAGS = -I/usr/local/Cellar/openssl/1.0.2o_1/include
 SSL_LIBS = -L/usr/local/Cellar/openssl/1.0.2o_1/lib -lssl
@@ -466,6 +479,7 @@ UNIVALUE_LIBS = univalue/libunivalue.la
 USE_QRCODE = 
 USE_UPNP = 
 VERSION = 0.16.99
+WARN_CXXFLAGS =  -Wall -Wextra -Wformat -Wvla
 WINDOWS_BITS = 
 WINDRES = 
 X11XCB_CFLAGS = 
@@ -639,7 +653,7 @@ EXTRA_DIST = $(DIST_SHARE) test/functional/test_runner.py \
 	test/util/data/txcreatescript4.json \
 	test/util/data/txcreatesignv1.hex \
 	test/util/data/txcreatesignv1.json \
-	test/util/data/txcreatesignv2.hex
+	test/util/data/txcreatesignv2.hex test/util/rpcauth-test.py
 CLEANFILES = $(OSX_DMG) $(BITCOIN_WIN_INSTALLER)
 DISTCHECK_CONFIGURE_FLAGS = --enable-man
 all: all-recursive
@@ -1301,7 +1315,19 @@ $(BITCOIN_CLI_BIN): FORCE
 
 .INTERMEDIATE: $(COVERAGE_INFO)
 
-clean-local:
+doc/doxygen/.stamp: doc/Doxyfile FORCE
+	$(MKDIR_P) $(@D)
+	$(DOXYGEN) $^
+	$(AM_V_at) touch $@
+
+docs: doc/doxygen/.stamp
+#docs:
+#	@echo "error: doxygen not found"
+
+clean-docs:
+	rm -rf doc/doxygen
+
+clean-local: clean-docs
 	rm -rf coverage_percent.txt test_bitcoin.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
 	rm -rf test/functional/__pycache__ test/functional/test_framework/__pycache__ test/cache
 

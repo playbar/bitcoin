@@ -4,3 +4,5 @@ cmake-build-debug
 *.o
 *.Po
 src/.libs
+*.lo
+.dirstamp

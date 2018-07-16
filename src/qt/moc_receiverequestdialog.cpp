@@ -11,29 +11,32 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'receiverequestdialog.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.11.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_QRImageWidget_t {
     QByteArrayData data[4];
-    char stringdata[36];
+    char stringdata0[35];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_QRImageWidget_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_QRImageWidget_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_QRImageWidget_t qt_meta_stringdata_QRImageWidget = {
     {
-QT_MOC_LITERAL(0, 0, 13),
-QT_MOC_LITERAL(1, 14, 9),
-QT_MOC_LITERAL(2, 24, 0),
-QT_MOC_LITERAL(3, 25, 9)
+QT_MOC_LITERAL(0, 0, 13), // "QRImageWidget"
+QT_MOC_LITERAL(1, 14, 9), // "saveImage"
+QT_MOC_LITERAL(2, 24, 0), // ""
+QT_MOC_LITERAL(3, 25, 9) // "copyImage"
+
     },
-    "QRImageWidget\0saveImage\0\0copyImage\0"
+    "QRImageWidget\0saveImage\0\0copyImage"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,8 +54,8 @@ static const uint qt_meta_data_QRImageWidget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x0a,
-       3,    0,   25,    2, 0x0a,
+       1,    0,   24,    2, 0x0a /* Public */,
+       3,    0,   25,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -65,6 +68,7 @@ void QRImageWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         QRImageWidget *_t = static_cast<QRImageWidget *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->saveImage(); break;
         case 1: _t->copyImage(); break;
@@ -74,9 +78,9 @@ void QRImageWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     Q_UNUSED(_a);
 }
 
-const QMetaObject QRImageWidget::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject QRImageWidget::staticMetaObject = {
     { &QLabel::staticMetaObject, qt_meta_stringdata_QRImageWidget.data,
-      qt_meta_data_QRImageWidget,  qt_static_metacall, 0, 0}
+      qt_meta_data_QRImageWidget,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -87,9 +91,9 @@ const QMetaObject *QRImageWidget::metaObject() const
 
 void *QRImageWidget::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_QRImageWidget.stringdata))
-        return static_cast<void*>(const_cast< QRImageWidget*>(this));
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_QRImageWidget.stringdata0))
+        return static_cast<void*>(this);
     return QLabel::qt_metacast(_clname);
 }
 
@@ -111,23 +115,24 @@ int QRImageWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 struct qt_meta_stringdata_ReceiveRequestDialog_t {
     QByteArrayData data[5];
-    char stringdata[78];
+    char stringdata0[77];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_ReceiveRequestDialog_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_ReceiveRequestDialog_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_ReceiveRequestDialog_t qt_meta_stringdata_ReceiveRequestDialog = {
     {
-QT_MOC_LITERAL(0, 0, 20),
-QT_MOC_LITERAL(1, 21, 21),
-QT_MOC_LITERAL(2, 43, 0),
-QT_MOC_LITERAL(3, 44, 25),
-QT_MOC_LITERAL(4, 70, 6)
+QT_MOC_LITERAL(0, 0, 20), // "ReceiveRequestDialog"
+QT_MOC_LITERAL(1, 21, 21), // "on_btnCopyURI_clicked"
+QT_MOC_LITERAL(2, 43, 0), // ""
+QT_MOC_LITERAL(3, 44, 25), // "on_btnCopyAddress_clicked"
+QT_MOC_LITERAL(4, 70, 6) // "update"
+
     },
     "ReceiveRequestDialog\0on_btnCopyURI_clicked\0"
-    "\0on_btnCopyAddress_clicked\0update\0"
+    "\0on_btnCopyAddress_clicked\0update"
 };
 #undef QT_MOC_LITERAL
 
@@ -145,9 +150,9 @@ static const uint qt_meta_data_ReceiveRequestDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x08,
-       3,    0,   30,    2, 0x08,
-       4,    0,   31,    2, 0x08,
+       1,    0,   29,    2, 0x08 /* Private */,
+       3,    0,   30,    2, 0x08 /* Private */,
+       4,    0,   31,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -161,6 +166,7 @@ void ReceiveRequestDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         ReceiveRequestDialog *_t = static_cast<ReceiveRequestDialog *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_btnCopyURI_clicked(); break;
         case 1: _t->on_btnCopyAddress_clicked(); break;
@@ -171,9 +177,9 @@ void ReceiveRequestDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
     Q_UNUSED(_a);
 }
 
-const QMetaObject ReceiveRequestDialog::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject ReceiveRequestDialog::staticMetaObject = {
     { &QDialog::staticMetaObject, qt_meta_stringdata_ReceiveRequestDialog.data,
-      qt_meta_data_ReceiveRequestDialog,  qt_static_metacall, 0, 0}
+      qt_meta_data_ReceiveRequestDialog,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -184,9 +190,9 @@ const QMetaObject *ReceiveRequestDialog::metaObject() const
 
 void *ReceiveRequestDialog::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_ReceiveRequestDialog.stringdata))
-        return static_cast<void*>(const_cast< ReceiveRequestDialog*>(this));
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_ReceiveRequestDialog.stringdata0))
+        return static_cast<void*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
@@ -206,4 +212,5 @@ int ReceiveRequestDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     }
     return _id;
 }
+QT_WARNING_POP
 QT_END_MOC_NAMESPACE

@@ -11,26 +11,29 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'csvmodelwriter.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.11.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CSVModelWriter_t {
     QByteArrayData data[1];
-    char stringdata[16];
+    char stringdata0[15];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_CSVModelWriter_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_CSVModelWriter_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CSVModelWriter_t qt_meta_stringdata_CSVModelWriter = {
     {
-QT_MOC_LITERAL(0, 0, 14)
+QT_MOC_LITERAL(0, 0, 14) // "CSVModelWriter"
+
     },
-    "CSVModelWriter\0"
+    "CSVModelWriter"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,9 +61,9 @@ void CSVModelWriter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     Q_UNUSED(_a);
 }
 
-const QMetaObject CSVModelWriter::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject CSVModelWriter::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_CSVModelWriter.data,
-      qt_meta_data_CSVModelWriter,  qt_static_metacall, 0, 0}
+      qt_meta_data_CSVModelWriter,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -71,17 +74,16 @@ const QMetaObject *CSVModelWriter::metaObject() const
 
 void *CSVModelWriter::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CSVModelWriter.stringdata))
-        return static_cast<void*>(const_cast< CSVModelWriter*>(this));
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_CSVModelWriter.stringdata0))
+        return static_cast<void*>(this);
     return QObject::qt_metacast(_clname);
 }
 
 int CSVModelWriter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
-    if (_id < 0)
-        return _id;
     return _id;
 }
+QT_WARNING_POP
 QT_END_MOC_NAMESPACE

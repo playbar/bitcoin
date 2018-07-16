@@ -10,36 +10,39 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'bitcoin.cpp' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.11.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_BitcoinCore_t {
     QByteArrayData data[9];
-    char stringdata[99];
+    char stringdata0[98];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_BitcoinCore_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_BitcoinCore_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_BitcoinCore_t qt_meta_stringdata_BitcoinCore = {
     {
-QT_MOC_LITERAL(0, 0, 11),
-QT_MOC_LITERAL(1, 12, 16),
-QT_MOC_LITERAL(2, 29, 0),
-QT_MOC_LITERAL(3, 30, 7),
-QT_MOC_LITERAL(4, 38, 14),
-QT_MOC_LITERAL(5, 53, 16),
-QT_MOC_LITERAL(6, 70, 7),
-QT_MOC_LITERAL(7, 78, 10),
-QT_MOC_LITERAL(8, 89, 8)
+QT_MOC_LITERAL(0, 0, 11), // "BitcoinCore"
+QT_MOC_LITERAL(1, 12, 16), // "initializeResult"
+QT_MOC_LITERAL(2, 29, 0), // ""
+QT_MOC_LITERAL(3, 30, 7), // "success"
+QT_MOC_LITERAL(4, 38, 14), // "shutdownResult"
+QT_MOC_LITERAL(5, 53, 16), // "runawayException"
+QT_MOC_LITERAL(6, 70, 7), // "message"
+QT_MOC_LITERAL(7, 78, 10), // "initialize"
+QT_MOC_LITERAL(8, 89, 8) // "shutdown"
+
     },
     "BitcoinCore\0initializeResult\0\0success\0"
     "shutdownResult\0runawayException\0message\0"
-    "initialize\0shutdown\0"
+    "initialize\0shutdown"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,13 +60,13 @@ static const uint qt_meta_data_BitcoinCore[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x06,
-       4,    0,   42,    2, 0x06,
-       5,    1,   43,    2, 0x06,
+       1,    1,   39,    2, 0x06 /* Public */,
+       4,    0,   42,    2, 0x06 /* Public */,
+       5,    1,   43,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   46,    2, 0x0a,
-       8,    0,   47,    2, 0x0a,
+       7,    0,   46,    2, 0x0a /* Public */,
+       8,    0,   47,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Bool,    3,
@@ -81,6 +84,7 @@ void BitcoinCore::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         BitcoinCore *_t = static_cast<BitcoinCore *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->initializeResult((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 1: _t->shutdownResult(); break;
@@ -91,31 +95,33 @@ void BitcoinCore::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (BitcoinCore::*_t)(bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&BitcoinCore::initializeResult)) {
+            using _t = void (BitcoinCore::*)(bool );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitcoinCore::initializeResult)) {
                 *result = 0;
+                return;
             }
         }
         {
-            typedef void (BitcoinCore::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&BitcoinCore::shutdownResult)) {
+            using _t = void (BitcoinCore::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitcoinCore::shutdownResult)) {
                 *result = 1;
+                return;
             }
         }
         {
-            typedef void (BitcoinCore::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&BitcoinCore::runawayException)) {
+            using _t = void (BitcoinCore::*)(const QString & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitcoinCore::runawayException)) {
                 *result = 2;
+                return;
             }
         }
     }
 }
 
-const QMetaObject BitcoinCore::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject BitcoinCore::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_BitcoinCore.data,
-      qt_meta_data_BitcoinCore,  qt_static_metacall, 0, 0}
+      qt_meta_data_BitcoinCore,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -126,9 +132,9 @@ const QMetaObject *BitcoinCore::metaObject() const
 
 void *BitcoinCore::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_BitcoinCore.stringdata))
-        return static_cast<void*>(const_cast< BitcoinCore*>(this));
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_BitcoinCore.stringdata0))
+        return static_cast<void*>(this);
     return QObject::qt_metacast(_clname);
 }
 
@@ -152,56 +158,57 @@ int BitcoinCore::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void BitcoinCore::initializeResult(bool _t1)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
 void BitcoinCore::shutdownResult()
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, 0);
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 
 // SIGNAL 2
 void BitcoinCore::runawayException(const QString & _t1)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 struct qt_meta_stringdata_BitcoinApplication_t {
     QByteArrayData data[16];
-    char stringdata[207];
+    char stringdata0[206];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_BitcoinApplication_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_BitcoinApplication_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_BitcoinApplication_t qt_meta_stringdata_BitcoinApplication = {
     {
-QT_MOC_LITERAL(0, 0, 18),
-QT_MOC_LITERAL(1, 19, 19),
-QT_MOC_LITERAL(2, 39, 0),
-QT_MOC_LITERAL(3, 40, 17),
-QT_MOC_LITERAL(4, 58, 10),
-QT_MOC_LITERAL(5, 69, 14),
-QT_MOC_LITERAL(6, 84, 8),
-QT_MOC_LITERAL(7, 93, 6),
-QT_MOC_LITERAL(8, 100, 16),
-QT_MOC_LITERAL(9, 117, 7),
-QT_MOC_LITERAL(10, 125, 14),
-QT_MOC_LITERAL(11, 140, 22),
-QT_MOC_LITERAL(12, 163, 7),
-QT_MOC_LITERAL(13, 171, 9),
-QT_MOC_LITERAL(14, 181, 12),
-QT_MOC_LITERAL(15, 194, 11)
+QT_MOC_LITERAL(0, 0, 18), // "BitcoinApplication"
+QT_MOC_LITERAL(1, 19, 19), // "requestedInitialize"
+QT_MOC_LITERAL(2, 39, 0), // ""
+QT_MOC_LITERAL(3, 40, 17), // "requestedShutdown"
+QT_MOC_LITERAL(4, 58, 10), // "stopThread"
+QT_MOC_LITERAL(5, 69, 14), // "splashFinished"
+QT_MOC_LITERAL(6, 84, 8), // "QWidget*"
+QT_MOC_LITERAL(7, 93, 6), // "window"
+QT_MOC_LITERAL(8, 100, 16), // "initializeResult"
+QT_MOC_LITERAL(9, 117, 7), // "success"
+QT_MOC_LITERAL(10, 125, 14), // "shutdownResult"
+QT_MOC_LITERAL(11, 140, 22), // "handleRunawayException"
+QT_MOC_LITERAL(12, 163, 7), // "message"
+QT_MOC_LITERAL(13, 171, 9), // "addWallet"
+QT_MOC_LITERAL(14, 181, 12), // "WalletModel*"
+QT_MOC_LITERAL(15, 194, 11) // "walletModel"
+
     },
     "BitcoinApplication\0requestedInitialize\0"
     "\0requestedShutdown\0stopThread\0"
     "splashFinished\0QWidget*\0window\0"
     "initializeResult\0success\0shutdownResult\0"
     "handleRunawayException\0message\0addWallet\0"
-    "WalletModel*\0walletModel\0"
+    "WalletModel*\0walletModel"
 };
 #undef QT_MOC_LITERAL
 
@@ -219,16 +226,16 @@ static const uint qt_meta_data_BitcoinApplication[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x06,
-       3,    0,   55,    2, 0x06,
-       4,    0,   56,    2, 0x06,
-       5,    1,   57,    2, 0x06,
+       1,    0,   54,    2, 0x06 /* Public */,
+       3,    0,   55,    2, 0x06 /* Public */,
+       4,    0,   56,    2, 0x06 /* Public */,
+       5,    1,   57,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    1,   60,    2, 0x0a,
-      10,    0,   63,    2, 0x0a,
-      11,    1,   64,    2, 0x0a,
-      13,    1,   67,    2, 0x0a,
+       8,    1,   60,    2, 0x0a /* Public */,
+      10,    0,   63,    2, 0x0a /* Public */,
+      11,    1,   64,    2, 0x0a /* Public */,
+      13,    1,   67,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -249,6 +256,7 @@ void BitcoinApplication::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         BitcoinApplication *_t = static_cast<BitcoinApplication *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->requestedInitialize(); break;
         case 1: _t->requestedShutdown(); break;
@@ -280,37 +288,40 @@ void BitcoinApplication::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (BitcoinApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&BitcoinApplication::requestedInitialize)) {
+            using _t = void (BitcoinApplication::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitcoinApplication::requestedInitialize)) {
                 *result = 0;
+                return;
             }
         }
         {
-            typedef void (BitcoinApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&BitcoinApplication::requestedShutdown)) {
+            using _t = void (BitcoinApplication::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitcoinApplication::requestedShutdown)) {
                 *result = 1;
+                return;
             }
         }
         {
-            typedef void (BitcoinApplication::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&BitcoinApplication::stopThread)) {
+            using _t = void (BitcoinApplication::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitcoinApplication::stopThread)) {
                 *result = 2;
+                return;
             }
         }
         {
-            typedef void (BitcoinApplication::*_t)(QWidget * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&BitcoinApplication::splashFinished)) {
+            using _t = void (BitcoinApplication::*)(QWidget * );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitcoinApplication::splashFinished)) {
                 *result = 3;
+                return;
             }
         }
     }
 }
 
-const QMetaObject BitcoinApplication::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject BitcoinApplication::staticMetaObject = {
     { &QApplication::staticMetaObject, qt_meta_stringdata_BitcoinApplication.data,
-      qt_meta_data_BitcoinApplication,  qt_static_metacall, 0, 0}
+      qt_meta_data_BitcoinApplication,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -321,9 +332,9 @@ const QMetaObject *BitcoinApplication::metaObject() const
 
 void *BitcoinApplication::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_BitcoinApplication.stringdata))
-        return static_cast<void*>(const_cast< BitcoinApplication*>(this));
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_BitcoinApplication.stringdata0))
+        return static_cast<void*>(this);
     return QApplication::qt_metacast(_clname);
 }
 
@@ -347,25 +358,26 @@ int BitcoinApplication::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void BitcoinApplication::requestedInitialize()
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 
 // SIGNAL 1
 void BitcoinApplication::requestedShutdown()
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, 0);
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 
 // SIGNAL 2
 void BitcoinApplication::stopThread()
 {
-    QMetaObject::activate(this, &staticMetaObject, 2, 0);
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 
 // SIGNAL 3
 void BitcoinApplication::splashFinished(QWidget * _t1)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
+QT_WARNING_POP
 QT_END_MOC_NAMESPACE

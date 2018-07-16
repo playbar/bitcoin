@@ -132,7 +132,8 @@ CONFIG_CLEAN_FILES = libbitcoinconsensus.pc share/setup.nsi \
 	share/qt/Info.plist test/config.ini \
 	contrib/devtools/split-debug.sh doc/Doxyfile
 CONFIG_CLEAN_VPATH_FILES = contrib/filter-lcov.py \
-	test/functional/test_runner.py test/util/bitcoin-util-test.py
+	test/functional/test_runner.py test/util/bitcoin-util-test.py \
+	test/util/rpcauth-test.py
 SCRIPTS = $(dist_noinst_SCRIPTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -235,9 +236,11 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/bitcoin-config.h.in \
 	$(top_srcdir)/test/config.ini.in \
 	$(top_srcdir)/test/functional/test_runner.py \
-	$(top_srcdir)/test/util/bitcoin-util-test.py COPYING \
+	$(top_srcdir)/test/util/bitcoin-util-test.py \
+	$(top_srcdir)/test/util/rpcauth-test.py COPYING \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
+	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
+	build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -288,6 +291,7 @@ ARFLAGS = @ARFLAGS@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
+AVX2_CXXFLAGS = @AVX2_CXXFLAGS@
 AWK = @AWK@
 BDB_CFLAGS = @BDB_CFLAGS@
 BDB_CPPFLAGS = @BDB_CPPFLAGS@
@@ -329,9 +333,12 @@ CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
+DEBUG_CPPFLAGS = @DEBUG_CPPFLAGS@
+DEBUG_CXXFLAGS = @DEBUG_CXXFLAGS@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DLLTOOL = @DLLTOOL@
+DOXYGEN = @DOXYGEN@
 DSYMUTIL = @DSYMUTIL@
 DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
@@ -350,6 +357,8 @@ GCOV = @GCOV@
 GENHTML = @GENHTML@
 GENISOIMAGE = @GENISOIMAGE@
 GIT = @GIT@
+GPROF_CXXFLAGS = @GPROF_CXXFLAGS@
+GPROF_LDFLAGS = @GPROF_LDFLAGS@
 GREP = @GREP@
 HARDENED_CPPFLAGS = @HARDENED_CPPFLAGS@
 HARDENED_CXXFLAGS = @HARDENED_CXXFLAGS@
@@ -392,6 +401,7 @@ MOC = @MOC@
 MOC_DEFS = @MOC_DEFS@
 NM = @NM@
 NMEDIT = @NMEDIT@
+NOWARN_CXXFLAGS = @NOWARN_CXXFLAGS@
 OBJCOPY = @OBJCOPY@
 OBJCXX = @OBJCXX@
 OBJCXXDEPMODE = @OBJCXXDEPMODE@
@@ -451,9 +461,12 @@ RCC = @RCC@
 READELF = @READELF@
 RELDFLAGS = @RELDFLAGS@
 RSVG_CONVERT = @RSVG_CONVERT@
+SANITIZER_CXXFLAGS = @SANITIZER_CXXFLAGS@
+SANITIZER_LDFLAGS = @SANITIZER_LDFLAGS@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
+SSE41_CXXFLAGS = @SSE41_CXXFLAGS@
 SSE42_CXXFLAGS = @SSE42_CXXFLAGS@
 SSL_CFLAGS = @SSL_CFLAGS@
 SSL_LIBS = @SSL_LIBS@
@@ -466,6 +479,7 @@ UNIVALUE_LIBS = @UNIVALUE_LIBS@
 USE_QRCODE = @USE_QRCODE@
 USE_UPNP = @USE_UPNP@
 VERSION = @VERSION@
+WARN_CXXFLAGS = @WARN_CXXFLAGS@
 WINDOWS_BITS = @WINDOWS_BITS@
 WINDRES = @WINDRES@
 X11XCB_CFLAGS = @X11XCB_CFLAGS@
@@ -639,7 +653,7 @@ EXTRA_DIST = $(DIST_SHARE) test/functional/test_runner.py \
 	test/util/data/txcreatescript4.json \
 	test/util/data/txcreatesignv1.hex \
 	test/util/data/txcreatesignv1.json \
-	test/util/data/txcreatesignv2.hex
+	test/util/data/txcreatesignv2.hex test/util/rpcauth-test.py
 CLEANFILES = $(OSX_DMG) $(BITCOIN_WIN_INSTALLER)
 DISTCHECK_CONFIGURE_FLAGS = --enable-man
 all: all-recursive
@@ -703,8 +717,8 @@ test/config.ini: $(top_builddir)/config.status $(top_srcdir)/test/config.ini.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 contrib/devtools/split-debug.sh: $(top_builddir)/config.status $(top_srcdir)/contrib/devtools/split-debug.sh.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
-doc/Doxyfile: $(top_builddir)/config.status $(top_srcdir)/doc/Doxyfile.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
+@HAVE_DOXYGEN_TRUE@doc/Doxyfile: $(top_builddir)/config.status $(top_srcdir)/doc/Doxyfile.in
+@HAVE_DOXYGEN_TRUE@	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -1301,7 +1315,19 @@ $(BITCOIN_CLI_BIN): FORCE
 
 .INTERMEDIATE: $(COVERAGE_INFO)
 
-clean-local:
+doc/doxygen/.stamp: doc/Doxyfile FORCE
+	$(MKDIR_P) $(@D)
+	$(DOXYGEN) $^
+	$(AM_V_at) touch $@
+
+@HAVE_DOXYGEN_TRUE@docs: doc/doxygen/.stamp
+@HAVE_DOXYGEN_FALSE@docs:
+@HAVE_DOXYGEN_FALSE@	@echo "error: doxygen not found"
+
+clean-docs:
+	rm -rf doc/doxygen
+
+clean-local: clean-docs
 	rm -rf coverage_percent.txt test_bitcoin.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
 	rm -rf test/functional/__pycache__ test/functional/test_framework/__pycache__ test/cache
 

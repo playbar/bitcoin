@@ -1,1 +1,878 @@
-# dummy
+script/libbitcoinconsensus_la-interpreter.lo: script/interpreter.cpp \
+ script/interpreter.h script/script_error.h primitives/transaction.h \
+ /opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include/stdint.h \
+ /opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/stdint.h \
+ /usr/include/sys/_types/_int8_t.h /usr/include/sys/_types/_int16_t.h \
+ /usr/include/sys/_types/_int32_t.h /usr/include/sys/_types/_int64_t.h \
+ /usr/include/_types/_uint8_t.h /usr/include/_types/_uint16_t.h \
+ /usr/include/_types/_uint32_t.h /usr/include/_types/_uint64_t.h \
+ /usr/include/sys/_types.h /usr/include/sys/cdefs.h \
+ /usr/include/sys/_symbol_aliasing.h \
+ /usr/include/sys/_posix_availability.h /usr/include/machine/_types.h \
+ /usr/include/i386/_types.h /usr/include/sys/_pthread/_pthread_types.h \
+ /usr/include/sys/_types/_intptr_t.h /usr/include/machine/types.h \
+ /usr/include/i386/types.h /usr/include/sys/_types/_u_int8_t.h \
+ /usr/include/sys/_types/_u_int16_t.h \
+ /usr/include/sys/_types/_u_int32_t.h \
+ /usr/include/sys/_types/_u_int64_t.h \
+ /usr/include/sys/_types/_uintptr_t.h /usr/include/_types/_intmax_t.h \
+ /usr/include/_types/_uintmax_t.h amount.h script/script.h \
+ crypto/common.h config/bitcoin-config.h /usr/include/string.h \
+ /usr/include/_types.h /usr/include/Availability.h \
+ /opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/AvailabilityInternal.h \
+ /usr/include/sys/_types/_size_t.h /usr/include/sys/_types/_null.h \
+ /usr/include/sys/_types/_ssize_t.h /usr/include/strings.h \
+ compat/endian.h compat/byteswap.h /usr/include/libkern/OSByteOrder.h \
+ /usr/include/libkern/_OSByteOrder.h \
+ /usr/include/libkern/i386/_OSByteOrder.h \
+ /usr/include/libkern/i386/OSByteOrder.h \
+ /usr/include/sys/_types/_os_inline.h prevector.h /usr/include/assert.h \
+ /opt/local/include/gcc7/c++/stdlib.h /opt/local/include/gcc7/c++/cstdlib \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/c++config.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/os_defines.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/cpu_defines.h \
+ /usr/include/stdlib.h /usr/include/sys/wait.h \
+ /usr/include/sys/_types/_pid_t.h /usr/include/sys/_types/_id_t.h \
+ /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h \
+ /usr/include/machine/signal.h /usr/include/i386/signal.h \
+ /usr/include/machine/_mcontext.h /usr/include/i386/_mcontext.h \
+ /usr/include/mach/machine/_structs.h /usr/include/mach/i386/_structs.h \
+ /usr/include/sys/_pthread/_pthread_attr_t.h \
+ /usr/include/sys/_types/_sigaltstack.h \
+ /usr/include/sys/_types/_ucontext.h /usr/include/sys/_types/_sigset_t.h \
+ /usr/include/sys/_types/_uid_t.h /usr/include/sys/resource.h \
+ /usr/include/sys/_types/_timeval.h /usr/include/machine/endian.h \
+ /usr/include/i386/endian.h /usr/include/sys/_endian.h \
+ /usr/include/alloca.h /usr/include/sys/_types/_ct_rune_t.h \
+ /usr/include/sys/_types/_rune_t.h /usr/include/sys/_types/_wchar_t.h \
+ /usr/include/sys/_types/_dev_t.h /usr/include/sys/_types/_mode_t.h \
+ /opt/local/include/gcc7/c++/bits/std_abs.h \
+ /opt/local/include/gcc7/c++/cstddef \
+ /opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include/stddef.h \
+ /opt/local/include/gcc7/c++/iterator \
+ /opt/local/include/gcc7/c++/bits/stl_iterator_base_types.h \
+ /opt/local/include/gcc7/c++/type_traits \
+ /opt/local/include/gcc7/c++/bits/stl_iterator_base_funcs.h \
+ /opt/local/include/gcc7/c++/bits/concept_check.h \
+ /opt/local/include/gcc7/c++/debug/assertions.h \
+ /opt/local/include/gcc7/c++/bits/stl_iterator.h \
+ /opt/local/include/gcc7/c++/bits/cpp_type_traits.h \
+ /opt/local/include/gcc7/c++/ext/type_traits.h \
+ /opt/local/include/gcc7/c++/bits/move.h \
+ /opt/local/include/gcc7/c++/bits/ptr_traits.h \
+ /opt/local/include/gcc7/c++/ostream /opt/local/include/gcc7/c++/ios \
+ /opt/local/include/gcc7/c++/iosfwd \
+ /opt/local/include/gcc7/c++/bits/stringfwd.h \
+ /opt/local/include/gcc7/c++/bits/memoryfwd.h \
+ /opt/local/include/gcc7/c++/bits/postypes.h \
+ /opt/local/include/gcc7/c++/cwchar /usr/include/wchar.h \
+ /usr/include/sys/_types/_mbstate_t.h \
+ /opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include/stdarg.h \
+ /usr/include/stdio.h /usr/include/sys/_types/_va_list.h \
+ /usr/include/sys/stdio.h /usr/include/sys/_types/_off_t.h \
+ /usr/include/time.h /usr/include/sys/_types/_clock_t.h \
+ /usr/include/sys/_types/_time_t.h /usr/include/sys/_types/_timespec.h \
+ /usr/include/_wctype.h /usr/include/sys/_types/_wint_t.h \
+ /usr/include/_types/_wctype_t.h /usr/include/ctype.h \
+ /usr/include/runetype.h /opt/local/include/gcc7/c++/exception \
+ /opt/local/include/gcc7/c++/bits/exception.h \
+ /opt/local/include/gcc7/c++/bits/exception_ptr.h \
+ /opt/local/include/gcc7/c++/bits/exception_defines.h \
+ /opt/local/include/gcc7/c++/bits/cxxabi_init_exception.h \
+ /opt/local/include/gcc7/c++/typeinfo \
+ /opt/local/include/gcc7/c++/bits/hash_bytes.h \
+ /opt/local/include/gcc7/c++/new \
+ /opt/local/include/gcc7/c++/bits/nested_exception.h \
+ /opt/local/include/gcc7/c++/bits/char_traits.h \
+ /opt/local/include/gcc7/c++/bits/stl_algobase.h \
+ /opt/local/include/gcc7/c++/bits/functexcept.h \
+ /opt/local/include/gcc7/c++/ext/numeric_traits.h \
+ /opt/local/include/gcc7/c++/bits/stl_pair.h \
+ /opt/local/include/gcc7/c++/debug/debug.h \
+ /opt/local/include/gcc7/c++/bits/predefined_ops.h \
+ /opt/local/include/gcc7/c++/cstdint \
+ /opt/local/include/gcc7/c++/bits/localefwd.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/c++locale.h \
+ /opt/local/include/gcc7/c++/clocale /usr/include/locale.h \
+ /usr/include/_locale.h /opt/local/include/gcc7/c++/cctype \
+ /opt/local/include/gcc7/c++/bits/ios_base.h \
+ /opt/local/include/gcc7/c++/ext/atomicity.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/gthr.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/pthread/pthread_impl.h \
+ /usr/include/pthread/sched.h /usr/include/pthread_impl.h \
+ /usr/include/sys/_pthread/_pthread_cond_t.h \
+ /usr/include/sys/_pthread/_pthread_condattr_t.h \
+ /usr/include/sys/_pthread/_pthread_key_t.h \
+ /usr/include/sys/_pthread/_pthread_mutex_t.h \
+ /usr/include/sys/_pthread/_pthread_mutexattr_t.h \
+ /usr/include/sys/_pthread/_pthread_once_t.h \
+ /usr/include/sys/_pthread/_pthread_rwlock_t.h \
+ /usr/include/sys/_pthread/_pthread_rwlockattr_t.h \
+ /usr/include/sys/_pthread/_pthread_t.h /usr/include/pthread/qos.h \
+ /usr/include/sys/qos.h /usr/include/sys/_types/_mach_port_t.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/atomic_word.h \
+ /opt/local/include/gcc7/c++/bits/locale_classes.h \
+ /opt/local/include/gcc7/c++/string \
+ /opt/local/include/gcc7/c++/bits/allocator.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/c++allocator.h \
+ /opt/local/include/gcc7/c++/ext/new_allocator.h \
+ /opt/local/include/gcc7/c++/bits/ostream_insert.h \
+ /opt/local/include/gcc7/c++/bits/cxxabi_forced.h \
+ /opt/local/include/gcc7/c++/bits/stl_function.h \
+ /opt/local/include/gcc7/c++/backward/binders.h \
+ /opt/local/include/gcc7/c++/bits/range_access.h \
+ /opt/local/include/gcc7/c++/initializer_list \
+ /opt/local/include/gcc7/c++/bits/basic_string.h \
+ /opt/local/include/gcc7/c++/ext/alloc_traits.h \
+ /opt/local/include/gcc7/c++/bits/alloc_traits.h \
+ /opt/local/include/gcc7/c++/ext/string_conversions.h \
+ /opt/local/include/gcc7/c++/cstdio /opt/local/include/gcc7/c++/cerrno \
+ /usr/include/errno.h /usr/include/sys/errno.h \
+ /opt/local/include/gcc7/c++/bits/functional_hash.h \
+ /opt/local/include/gcc7/c++/bits/basic_string.tcc \
+ /opt/local/include/gcc7/c++/bits/locale_classes.tcc \
+ /opt/local/include/gcc7/c++/system_error \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/error_constants.h \
+ /opt/local/include/gcc7/c++/stdexcept \
+ /opt/local/include/gcc7/c++/streambuf \
+ /opt/local/include/gcc7/c++/bits/streambuf.tcc \
+ /opt/local/include/gcc7/c++/bits/basic_ios.h \
+ /opt/local/include/gcc7/c++/bits/locale_facets.h \
+ /opt/local/include/gcc7/c++/cwctype /usr/include/wctype.h \
+ /usr/include/_types/_wctrans_t.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/ctype_base.h \
+ /opt/local/include/gcc7/c++/bits/streambuf_iterator.h \
+ /opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/ctype_inline.h \
+ /opt/local/include/gcc7/c++/bits/locale_facets.tcc \
+ /opt/local/include/gcc7/c++/bits/basic_ios.tcc \
+ /opt/local/include/gcc7/c++/bits/ostream.tcc \
+ /opt/local/include/gcc7/c++/istream \
+ /opt/local/include/gcc7/c++/bits/istream.tcc \
+ /opt/local/include/gcc7/c++/bits/stream_iterator.h compat.h \
+ /usr/include/fcntl.h /usr/include/sys/fcntl.h \
+ /usr/include/sys/_types/_o_sync.h /usr/include/sys/_types/_o_dsync.h \
+ /usr/include/sys/_types/_seek_set.h /usr/include/sys/_types/_s_ifmt.h \
+ /usr/include/sys/_types/_filesec_t.h /usr/include/sys/mman.h \
+ /usr/include/sys/select.h /usr/include/sys/_types/_fd_def.h \
+ /usr/include/sys/_types/_suseconds_t.h \
+ /usr/include/sys/_types/_fd_setsize.h /usr/include/sys/_types/_fd_set.h \
+ /usr/include/sys/_types/_fd_clr.h /usr/include/sys/_types/_fd_isset.h \
+ /usr/include/sys/_types/_fd_zero.h /usr/include/sys/_types/_fd_copy.h \
+ /usr/include/sys/_select.h /usr/include/sys/socket.h \
+ /usr/include/sys/types.h /usr/include/sys/_types/_u_char.h \
+ /usr/include/sys/_types/_u_short.h /usr/include/sys/_types/_u_int.h \
+ /usr/include/sys/_types/_caddr_t.h /usr/include/sys/_types/_blkcnt_t.h \
+ /usr/include/sys/_types/_blksize_t.h /usr/include/sys/_types/_gid_t.h \
+ /usr/include/sys/_types/_in_addr_t.h \
+ /usr/include/sys/_types/_in_port_t.h /usr/include/sys/_types/_ino_t.h \
+ /usr/include/sys/_types/_ino64_t.h /usr/include/sys/_types/_key_t.h \
+ /usr/include/sys/_types/_nlink_t.h /usr/include/sys/_types/_useconds_t.h \
+ /usr/include/sys/_types/_rsize_t.h /usr/include/sys/_types/_errno_t.h \
+ /usr/include/sys/_types/_fsblkcnt_t.h \
+ /usr/include/sys/_types/_fsfilcnt_t.h /usr/include/machine/_param.h \
+ /usr/include/i386/_param.h /usr/include/net/net_kev.h \
+ /usr/include/sys/_types/_sa_family_t.h \
+ /usr/include/sys/_types/_socklen_t.h /usr/include/sys/_types/_iovec_t.h \
+ /usr/include/net/if.h /usr/include/net/if_var.h /usr/include/sys/time.h \
+ /usr/include/sys/_types/_timeval64.h /usr/include/sys/queue.h \
+ /usr/include/sys/_types/_timeval32.h /usr/include/netinet/in.h \
+ /usr/include/netinet6/in6.h /usr/include/netinet/tcp.h \
+ /usr/include/arpa/inet.h /usr/include/ifaddrs.h \
+ /opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/limits.h \
+ /opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/machine/limits.h \
+ /usr/include/i386/limits.h /usr/include/i386/_limits.h \
+ /usr/include/sys/syslimits.h /usr/include/netdb.h /usr/include/unistd.h \
+ /usr/include/sys/unistd.h /usr/include/sys/_types/_posix_vdisable.h \
+ /usr/include/sys/_types/_uuid_t.h /usr/include/gethostuuid.h serialize.h \
+ /opt/local/include/gcc7/c++/algorithm \
+ /opt/local/include/gcc7/c++/utility \
+ /opt/local/include/gcc7/c++/bits/stl_relops.h \
+ /opt/local/include/gcc7/c++/bits/stl_algo.h \
+ /opt/local/include/gcc7/c++/bits/algorithmfwd.h \
+ /opt/local/include/gcc7/c++/bits/stl_heap.h \
+ /opt/local/include/gcc7/c++/bits/stl_tempbuf.h \
+ /opt/local/include/gcc7/c++/bits/stl_construct.h \
+ /opt/local/include/gcc7/c++/bits/uniform_int_dist.h \
+ /opt/local/include/gcc7/c++/limits /opt/local/include/gcc7/c++/map \
+ /opt/local/include/gcc7/c++/bits/stl_tree.h \
+ /opt/local/include/gcc7/c++/ext/aligned_buffer.h \
+ /opt/local/include/gcc7/c++/bits/stl_map.h \
+ /opt/local/include/gcc7/c++/tuple /opt/local/include/gcc7/c++/array \
+ /opt/local/include/gcc7/c++/bits/uses_allocator.h \
+ /opt/local/include/gcc7/c++/bits/invoke.h \
+ /opt/local/include/gcc7/c++/bits/stl_multimap.h \
+ /opt/local/include/gcc7/c++/memory \
+ /opt/local/include/gcc7/c++/bits/stl_uninitialized.h \
+ /opt/local/include/gcc7/c++/bits/stl_raw_storage_iter.h \
+ /opt/local/include/gcc7/c++/ext/concurrence.h \
+ /opt/local/include/gcc7/c++/bits/unique_ptr.h \
+ /opt/local/include/gcc7/c++/bits/shared_ptr.h \
+ /opt/local/include/gcc7/c++/bits/shared_ptr_base.h \
+ /opt/local/include/gcc7/c++/bits/allocated_ptr.h \
+ /opt/local/include/gcc7/c++/bits/refwrap.h \
+ /opt/local/include/gcc7/c++/bits/shared_ptr_atomic.h \
+ /opt/local/include/gcc7/c++/bits/atomic_base.h \
+ /opt/local/include/gcc7/c++/bits/atomic_lockfree_defines.h \
+ /opt/local/include/gcc7/c++/backward/auto_ptr.h \
+ /opt/local/include/gcc7/c++/set \
+ /opt/local/include/gcc7/c++/bits/stl_set.h \
+ /opt/local/include/gcc7/c++/bits/stl_multiset.h \
+ /opt/local/include/gcc7/c++/vector \
+ /opt/local/include/gcc7/c++/bits/stl_vector.h \
+ /opt/local/include/gcc7/c++/bits/stl_bvector.h \
+ /opt/local/include/gcc7/c++/bits/vector.tcc span.h \
+ /opt/local/include/gcc7/c++/climits uint256.h \
+ /opt/local/include/gcc7/c++/cstring crypto/ripemd160.h crypto/sha1.h \
+ crypto/sha256.h pubkey.h hash.h version.h
+
+script/interpreter.h:
+
+script/script_error.h:
+
+primitives/transaction.h:
+
+/opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include/stdint.h:
+
+/opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/stdint.h:
+
+/usr/include/sys/_types/_int8_t.h:
+
+/usr/include/sys/_types/_int16_t.h:
+
+/usr/include/sys/_types/_int32_t.h:
+
+/usr/include/sys/_types/_int64_t.h:
+
+/usr/include/_types/_uint8_t.h:
+
+/usr/include/_types/_uint16_t.h:
+
+/usr/include/_types/_uint32_t.h:
+
+/usr/include/_types/_uint64_t.h:
+
+/usr/include/sys/_types.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/sys/_symbol_aliasing.h:
+
+/usr/include/sys/_posix_availability.h:
+
+/usr/include/machine/_types.h:
+
+/usr/include/i386/_types.h:
+
+/usr/include/sys/_pthread/_pthread_types.h:
+
+/usr/include/sys/_types/_intptr_t.h:
+
+/usr/include/machine/types.h:
+
+/usr/include/i386/types.h:
+
+/usr/include/sys/_types/_u_int8_t.h:
+
+/usr/include/sys/_types/_u_int16_t.h:
+
+/usr/include/sys/_types/_u_int32_t.h:
+
+/usr/include/sys/_types/_u_int64_t.h:
+
+/usr/include/sys/_types/_uintptr_t.h:
+
+/usr/include/_types/_intmax_t.h:
+
+/usr/include/_types/_uintmax_t.h:
+
+amount.h:
+
+script/script.h:
+
+crypto/common.h:
+
+config/bitcoin-config.h:
+
+/usr/include/string.h:
+
+/usr/include/_types.h:
+
+/usr/include/Availability.h:
+
+/opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/AvailabilityInternal.h:
+
+/usr/include/sys/_types/_size_t.h:
+
+/usr/include/sys/_types/_null.h:
+
+/usr/include/sys/_types/_ssize_t.h:
+
+/usr/include/strings.h:
+
+compat/endian.h:
+
+compat/byteswap.h:
+
+/usr/include/libkern/OSByteOrder.h:
+
+/usr/include/libkern/_OSByteOrder.h:
+
+/usr/include/libkern/i386/_OSByteOrder.h:
+
+/usr/include/libkern/i386/OSByteOrder.h:
+
+/usr/include/sys/_types/_os_inline.h:
+
+prevector.h:
+
+/usr/include/assert.h:
+
+/opt/local/include/gcc7/c++/stdlib.h:
+
+/opt/local/include/gcc7/c++/cstdlib:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/c++config.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/os_defines.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/cpu_defines.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/sys/wait.h:
+
+/usr/include/sys/_types/_pid_t.h:
+
+/usr/include/sys/_types/_id_t.h:
+
+/usr/include/sys/signal.h:
+
+/usr/include/sys/appleapiopts.h:
+
+/usr/include/machine/signal.h:
+
+/usr/include/i386/signal.h:
+
+/usr/include/machine/_mcontext.h:
+
+/usr/include/i386/_mcontext.h:
+
+/usr/include/mach/machine/_structs.h:
+
+/usr/include/mach/i386/_structs.h:
+
+/usr/include/sys/_pthread/_pthread_attr_t.h:
+
+/usr/include/sys/_types/_sigaltstack.h:
+
+/usr/include/sys/_types/_ucontext.h:
+
+/usr/include/sys/_types/_sigset_t.h:
+
+/usr/include/sys/_types/_uid_t.h:
+
+/usr/include/sys/resource.h:
+
+/usr/include/sys/_types/_timeval.h:
+
+/usr/include/machine/endian.h:
+
+/usr/include/i386/endian.h:
+
+/usr/include/sys/_endian.h:
+
+/usr/include/alloca.h:
+
+/usr/include/sys/_types/_ct_rune_t.h:
+
+/usr/include/sys/_types/_rune_t.h:
+
+/usr/include/sys/_types/_wchar_t.h:
+
+/usr/include/sys/_types/_dev_t.h:
+
+/usr/include/sys/_types/_mode_t.h:
+
+/opt/local/include/gcc7/c++/bits/std_abs.h:
+
+/opt/local/include/gcc7/c++/cstddef:
+
+/opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include/stddef.h:
+
+/opt/local/include/gcc7/c++/iterator:
+
+/opt/local/include/gcc7/c++/bits/stl_iterator_base_types.h:
+
+/opt/local/include/gcc7/c++/type_traits:
+
+/opt/local/include/gcc7/c++/bits/stl_iterator_base_funcs.h:
+
+/opt/local/include/gcc7/c++/bits/concept_check.h:
+
+/opt/local/include/gcc7/c++/debug/assertions.h:
+
+/opt/local/include/gcc7/c++/bits/stl_iterator.h:
+
+/opt/local/include/gcc7/c++/bits/cpp_type_traits.h:
+
+/opt/local/include/gcc7/c++/ext/type_traits.h:
+
+/opt/local/include/gcc7/c++/bits/move.h:
+
+/opt/local/include/gcc7/c++/bits/ptr_traits.h:
+
+/opt/local/include/gcc7/c++/ostream:
+
+/opt/local/include/gcc7/c++/ios:
+
+/opt/local/include/gcc7/c++/iosfwd:
+
+/opt/local/include/gcc7/c++/bits/stringfwd.h:
+
+/opt/local/include/gcc7/c++/bits/memoryfwd.h:
+
+/opt/local/include/gcc7/c++/bits/postypes.h:
+
+/opt/local/include/gcc7/c++/cwchar:
+
+/usr/include/wchar.h:
+
+/usr/include/sys/_types/_mbstate_t.h:
+
+/opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include/stdarg.h:
+
+/usr/include/stdio.h:
+
+/usr/include/sys/_types/_va_list.h:
+
+/usr/include/sys/stdio.h:
+
+/usr/include/sys/_types/_off_t.h:
+
+/usr/include/time.h:
+
+/usr/include/sys/_types/_clock_t.h:
+
+/usr/include/sys/_types/_time_t.h:
+
+/usr/include/sys/_types/_timespec.h:
+
+/usr/include/_wctype.h:
+
+/usr/include/sys/_types/_wint_t.h:
+
+/usr/include/_types/_wctype_t.h:
+
+/usr/include/ctype.h:
+
+/usr/include/runetype.h:
+
+/opt/local/include/gcc7/c++/exception:
+
+/opt/local/include/gcc7/c++/bits/exception.h:
+
+/opt/local/include/gcc7/c++/bits/exception_ptr.h:
+
+/opt/local/include/gcc7/c++/bits/exception_defines.h:
+
+/opt/local/include/gcc7/c++/bits/cxxabi_init_exception.h:
+
+/opt/local/include/gcc7/c++/typeinfo:
+
+/opt/local/include/gcc7/c++/bits/hash_bytes.h:
+
+/opt/local/include/gcc7/c++/new:
+
+/opt/local/include/gcc7/c++/bits/nested_exception.h:
+
+/opt/local/include/gcc7/c++/bits/char_traits.h:
+
+/opt/local/include/gcc7/c++/bits/stl_algobase.h:
+
+/opt/local/include/gcc7/c++/bits/functexcept.h:
+
+/opt/local/include/gcc7/c++/ext/numeric_traits.h:
+
+/opt/local/include/gcc7/c++/bits/stl_pair.h:
+
+/opt/local/include/gcc7/c++/debug/debug.h:
+
+/opt/local/include/gcc7/c++/bits/predefined_ops.h:
+
+/opt/local/include/gcc7/c++/cstdint:
+
+/opt/local/include/gcc7/c++/bits/localefwd.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/c++locale.h:
+
+/opt/local/include/gcc7/c++/clocale:
+
+/usr/include/locale.h:
+
+/usr/include/_locale.h:
+
+/opt/local/include/gcc7/c++/cctype:
+
+/opt/local/include/gcc7/c++/bits/ios_base.h:
+
+/opt/local/include/gcc7/c++/ext/atomicity.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/gthr.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/gthr-default.h:
+
+/usr/include/pthread.h:
+
+/usr/include/pthread/pthread_impl.h:
+
+/usr/include/pthread/sched.h:
+
+/usr/include/pthread_impl.h:
+
+/usr/include/sys/_pthread/_pthread_cond_t.h:
+
+/usr/include/sys/_pthread/_pthread_condattr_t.h:
+
+/usr/include/sys/_pthread/_pthread_key_t.h:
+
+/usr/include/sys/_pthread/_pthread_mutex_t.h:
+
+/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
+
+/usr/include/sys/_pthread/_pthread_once_t.h:
+
+/usr/include/sys/_pthread/_pthread_rwlock_t.h:
+
+/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
+
+/usr/include/sys/_pthread/_pthread_t.h:
+
+/usr/include/pthread/qos.h:
+
+/usr/include/sys/qos.h:
+
+/usr/include/sys/_types/_mach_port_t.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/atomic_word.h:
+
+/opt/local/include/gcc7/c++/bits/locale_classes.h:
+
+/opt/local/include/gcc7/c++/string:
+
+/opt/local/include/gcc7/c++/bits/allocator.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/c++allocator.h:
+
+/opt/local/include/gcc7/c++/ext/new_allocator.h:
+
+/opt/local/include/gcc7/c++/bits/ostream_insert.h:
+
+/opt/local/include/gcc7/c++/bits/cxxabi_forced.h:
+
+/opt/local/include/gcc7/c++/bits/stl_function.h:
+
+/opt/local/include/gcc7/c++/backward/binders.h:
+
+/opt/local/include/gcc7/c++/bits/range_access.h:
+
+/opt/local/include/gcc7/c++/initializer_list:
+
+/opt/local/include/gcc7/c++/bits/basic_string.h:
+
+/opt/local/include/gcc7/c++/ext/alloc_traits.h:
+
+/opt/local/include/gcc7/c++/bits/alloc_traits.h:
+
+/opt/local/include/gcc7/c++/ext/string_conversions.h:
+
+/opt/local/include/gcc7/c++/cstdio:
+
+/opt/local/include/gcc7/c++/cerrno:
+
+/usr/include/errno.h:
+
+/usr/include/sys/errno.h:
+
+/opt/local/include/gcc7/c++/bits/functional_hash.h:
+
+/opt/local/include/gcc7/c++/bits/basic_string.tcc:
+
+/opt/local/include/gcc7/c++/bits/locale_classes.tcc:
+
+/opt/local/include/gcc7/c++/system_error:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/error_constants.h:
+
+/opt/local/include/gcc7/c++/stdexcept:
+
+/opt/local/include/gcc7/c++/streambuf:
+
+/opt/local/include/gcc7/c++/bits/streambuf.tcc:
+
+/opt/local/include/gcc7/c++/bits/basic_ios.h:
+
+/opt/local/include/gcc7/c++/bits/locale_facets.h:
+
+/opt/local/include/gcc7/c++/cwctype:
+
+/usr/include/wctype.h:
+
+/usr/include/_types/_wctrans_t.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/ctype_base.h:
+
+/opt/local/include/gcc7/c++/bits/streambuf_iterator.h:
+
+/opt/local/include/gcc7/c++/x86_64-apple-darwin17/bits/ctype_inline.h:
+
+/opt/local/include/gcc7/c++/bits/locale_facets.tcc:
+
+/opt/local/include/gcc7/c++/bits/basic_ios.tcc:
+
+/opt/local/include/gcc7/c++/bits/ostream.tcc:
+
+/opt/local/include/gcc7/c++/istream:
+
+/opt/local/include/gcc7/c++/bits/istream.tcc:
+
+/opt/local/include/gcc7/c++/bits/stream_iterator.h:
+
+compat.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/sys/fcntl.h:
+
+/usr/include/sys/_types/_o_sync.h:
+
+/usr/include/sys/_types/_o_dsync.h:
+
+/usr/include/sys/_types/_seek_set.h:
+
+/usr/include/sys/_types/_s_ifmt.h:
+
+/usr/include/sys/_types/_filesec_t.h:
+
+/usr/include/sys/mman.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/sys/_types/_fd_def.h:
+
+/usr/include/sys/_types/_suseconds_t.h:
+
+/usr/include/sys/_types/_fd_setsize.h:
+
+/usr/include/sys/_types/_fd_set.h:
+
+/usr/include/sys/_types/_fd_clr.h:
+
+/usr/include/sys/_types/_fd_isset.h:
+
+/usr/include/sys/_types/_fd_zero.h:
+
+/usr/include/sys/_types/_fd_copy.h:
+
+/usr/include/sys/_select.h:
+
+/usr/include/sys/socket.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/sys/_types/_u_char.h:
+
+/usr/include/sys/_types/_u_short.h:
+
+/usr/include/sys/_types/_u_int.h:
+
+/usr/include/sys/_types/_caddr_t.h:
+
+/usr/include/sys/_types/_blkcnt_t.h:
+
+/usr/include/sys/_types/_blksize_t.h:
+
+/usr/include/sys/_types/_gid_t.h:
+
+/usr/include/sys/_types/_in_addr_t.h:
+
+/usr/include/sys/_types/_in_port_t.h:
+
+/usr/include/sys/_types/_ino_t.h:
+
+/usr/include/sys/_types/_ino64_t.h:
+
+/usr/include/sys/_types/_key_t.h:
+
+/usr/include/sys/_types/_nlink_t.h:
+
+/usr/include/sys/_types/_useconds_t.h:
+
+/usr/include/sys/_types/_rsize_t.h:
+
+/usr/include/sys/_types/_errno_t.h:
+
+/usr/include/sys/_types/_fsblkcnt_t.h:
+
+/usr/include/sys/_types/_fsfilcnt_t.h:
+
+/usr/include/machine/_param.h:
+
+/usr/include/i386/_param.h:
+
+/usr/include/net/net_kev.h:
+
+/usr/include/sys/_types/_sa_family_t.h:
+
+/usr/include/sys/_types/_socklen_t.h:
+
+/usr/include/sys/_types/_iovec_t.h:
+
+/usr/include/net/if.h:
+
+/usr/include/net/if_var.h:
+
+/usr/include/sys/time.h:
+
+/usr/include/sys/_types/_timeval64.h:
+
+/usr/include/sys/queue.h:
+
+/usr/include/sys/_types/_timeval32.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/netinet6/in6.h:
+
+/usr/include/netinet/tcp.h:
+
+/usr/include/arpa/inet.h:
+
+/usr/include/ifaddrs.h:
+
+/opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/limits.h:
+
+/opt/local/lib/gcc7/gcc/x86_64-apple-darwin17/7.2.0/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/machine/limits.h:
+
+/usr/include/i386/limits.h:
+
+/usr/include/i386/_limits.h:
+
+/usr/include/sys/syslimits.h:
+
+/usr/include/netdb.h:
+
+/usr/include/unistd.h:
+
+/usr/include/sys/unistd.h:
+
+/usr/include/sys/_types/_posix_vdisable.h:
+
+/usr/include/sys/_types/_uuid_t.h:
+
+/usr/include/gethostuuid.h:
+
+serialize.h:
+
+/opt/local/include/gcc7/c++/algorithm:
+
+/opt/local/include/gcc7/c++/utility:
+
+/opt/local/include/gcc7/c++/bits/stl_relops.h:
+
+/opt/local/include/gcc7/c++/bits/stl_algo.h:
+
+/opt/local/include/gcc7/c++/bits/algorithmfwd.h:
+
+/opt/local/include/gcc7/c++/bits/stl_heap.h:
+
+/opt/local/include/gcc7/c++/bits/stl_tempbuf.h:
+
+/opt/local/include/gcc7/c++/bits/stl_construct.h:
+
+/opt/local/include/gcc7/c++/bits/uniform_int_dist.h:
+
+/opt/local/include/gcc7/c++/limits:
+
+/opt/local/include/gcc7/c++/map:
+
+/opt/local/include/gcc7/c++/bits/stl_tree.h:
+
+/opt/local/include/gcc7/c++/ext/aligned_buffer.h:
+
+/opt/local/include/gcc7/c++/bits/stl_map.h:
+
+/opt/local/include/gcc7/c++/tuple:
+
+/opt/local/include/gcc7/c++/array:
+
+/opt/local/include/gcc7/c++/bits/uses_allocator.h:
+
+/opt/local/include/gcc7/c++/bits/invoke.h:
+
+/opt/local/include/gcc7/c++/bits/stl_multimap.h:
+
+/opt/local/include/gcc7/c++/memory:
+
+/opt/local/include/gcc7/c++/bits/stl_uninitialized.h:
+
+/opt/local/include/gcc7/c++/bits/stl_raw_storage_iter.h:
+
+/opt/local/include/gcc7/c++/ext/concurrence.h:
+
+/opt/local/include/gcc7/c++/bits/unique_ptr.h:
+
+/opt/local/include/gcc7/c++/bits/shared_ptr.h:
+
+/opt/local/include/gcc7/c++/bits/shared_ptr_base.h:
+
+/opt/local/include/gcc7/c++/bits/allocated_ptr.h:
+
+/opt/local/include/gcc7/c++/bits/refwrap.h:
+
+/opt/local/include/gcc7/c++/bits/shared_ptr_atomic.h:
+
+/opt/local/include/gcc7/c++/bits/atomic_base.h:
+
+/opt/local/include/gcc7/c++/bits/atomic_lockfree_defines.h:
+
+/opt/local/include/gcc7/c++/backward/auto_ptr.h:
+
+/opt/local/include/gcc7/c++/set:
+
+/opt/local/include/gcc7/c++/bits/stl_set.h:
+
+/opt/local/include/gcc7/c++/bits/stl_multiset.h:
+
+/opt/local/include/gcc7/c++/vector:
+
+/opt/local/include/gcc7/c++/bits/stl_vector.h:
+
+/opt/local/include/gcc7/c++/bits/stl_bvector.h:
+
+/opt/local/include/gcc7/c++/bits/vector.tcc:
+
+span.h:
+
+/opt/local/include/gcc7/c++/climits:
+
+uint256.h:
+
+/opt/local/include/gcc7/c++/cstring:
+
+crypto/ripemd160.h:
+
+crypto/sha1.h:
+
+crypto/sha256.h:
+
+pubkey.h:
+
+hash.h:
+
+version.h:

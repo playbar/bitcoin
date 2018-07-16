@@ -11,26 +11,29 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'coincontroltreewidget.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.11.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CoinControlTreeWidget_t {
     QByteArrayData data[1];
-    char stringdata[23];
+    char stringdata0[22];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_CoinControlTreeWidget_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_CoinControlTreeWidget_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CoinControlTreeWidget_t qt_meta_stringdata_CoinControlTreeWidget = {
     {
-QT_MOC_LITERAL(0, 0, 21)
+QT_MOC_LITERAL(0, 0, 21) // "CoinControlTreeWidget"
+
     },
-    "CoinControlTreeWidget\0"
+    "CoinControlTreeWidget"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,9 +61,9 @@ void CoinControlTreeWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c
     Q_UNUSED(_a);
 }
 
-const QMetaObject CoinControlTreeWidget::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject CoinControlTreeWidget::staticMetaObject = {
     { &QTreeWidget::staticMetaObject, qt_meta_stringdata_CoinControlTreeWidget.data,
-      qt_meta_data_CoinControlTreeWidget,  qt_static_metacall, 0, 0}
+      qt_meta_data_CoinControlTreeWidget,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -71,17 +74,16 @@ const QMetaObject *CoinControlTreeWidget::metaObject() const
 
 void *CoinControlTreeWidget::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CoinControlTreeWidget.stringdata))
-        return static_cast<void*>(const_cast< CoinControlTreeWidget*>(this));
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_CoinControlTreeWidget.stringdata0))
+        return static_cast<void*>(this);
     return QTreeWidget::qt_metacast(_clname);
 }
 
 int CoinControlTreeWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QTreeWidget::qt_metacall(_c, _id, _a);
-    if (_id < 0)
-        return _id;
     return _id;
 }
+QT_WARNING_POP
 QT_END_MOC_NAMESPACE
