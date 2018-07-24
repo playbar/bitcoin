@@ -115,7 +115,7 @@ set(DB_LIB_SRC
         db_src/db/db_upg.c
         db_src/db/db_upg_opd.c
         db_src/db/db_vrfy.c
-        db_src/db/db_vrfy_stub.c
+        #db_src/db/db_vrfy_stub.c
         db_src/db/db_vrfyutil.c
         db_src/db/partition.c
         db_src/dbreg/dbreg.c
@@ -367,6 +367,9 @@ set(BITCOIN_SRC
         src/crypto/sha512.cpp
         src/index/txindex.cpp
         src/index/base.cpp
+        src/interfaces/handler.cpp
+        src/interfaces/node.cpp
+        src/interfaces/wallet.cpp
         src/leveldb/helpers/memenv/memenv.cc
         src/leveldb/util/status.cc
         src/primitives/block.cpp
@@ -538,7 +541,7 @@ set(BITCOIN_QT_SRC
         src/qt/moc_coincontroltreewidget.cpp
         src/qt/moc_csvmodelwriter.cpp
         src/qt/moc_editaddressdialog.cpp
-        #src/qt/moc_guiutil.cpp
+        src/qt/moc_guiutil.cpp
         src/qt/moc_intro.cpp
         src/qt/moc_macdockiconhandler.cpp
         src/qt/moc_macnotificationhandler.cpp
@@ -640,13 +643,24 @@ add_library(QtGui_lib STATIC IMPORTED)
 set_target_properties(QtGui_lib PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtGui)
 
+add_library(QtDBus_lib STATIC IMPORTED)
+set_target_properties(QtDBus_lib PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qt/lib/QtDBus)
+
 add_library(protobuf_lib STATIC IMPORTED)
 set_target_properties(protobuf_lib PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/protobuf/libprotobuf.a)
 
+find_library("lib_foundation" "Foundation")
+find_library("lib_coreService" "ApplicationServices")
+find_library("lib_appkit" "AppKit")
+
 target_link_libraries(bitcoin-qt
         bitcoin
         event
+        "${lib_foundation}"
+        "${lib_coreService}"
+        "${lib_appkit}"
         univalue
         protobuf_lib
         crypto_lib
@@ -657,6 +671,7 @@ target_link_libraries(bitcoin-qt
         QtWidgets_lib
         QtGui_lib
         QtNetwork_lib
+        QtDBus_lib
         qrencode
         leveldb
         event
@@ -666,6 +681,7 @@ target_link_libraries(bitcoin-qt
         boost_filesystem
         boost_program_options
         boost_thread
+        boost_chrono
         )
 
 ################
